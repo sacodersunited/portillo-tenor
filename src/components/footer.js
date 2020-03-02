@@ -19,7 +19,9 @@ const Footer = () => (
       <Container>
         <Row>
           <Col md={3}>
-            <h4>David Portillo</h4>
+            <Link to="/">
+              <h4>David Portillo</h4>
+            </Link>
             <p>All Rights Reserved</p>
             <p>
               {" "}
