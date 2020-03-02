@@ -1,6 +1,6 @@
 import React from "react"
-import { Navbar, Container, Col, Row } from "react-bootstrap"
 import { Link } from "gatsby"
+import { Navbar, Container, Col, Row } from "react-bootstrap"
 import { FaTwitterSquare, FaFacebookSquare, FaInstagram } from "react-icons/fa"
 import { css } from "@emotion/core"
 
@@ -18,8 +18,8 @@ const Footer = () => (
     >
       <Container>
         <Row>
-          <Col md={4}>
-            <h4>David Portillo Tenor</h4>
+          <Col md={3}>
+            <h4>David Portillo</h4>
             <p>All Rights Reserved</p>
             <p>
               {" "}
@@ -28,8 +28,23 @@ const Footer = () => (
               <a href="https://www.gatsbyjs.org">Gatsby</a>
             </p>
           </Col>
+          <Col>
+            <h4>Links</h4>
+            <Link to="/biography" className="text-white nav-link">
+              Biography
+            </Link>
+            <Link to="/acclaims" className="text-white nav-link">
+              Acclaims
+            </Link>
+            <Link to="/calendar" className="text-white nav-link">
+              Calendar
+            </Link>
+            <Link to="/media" className="text-white nav-link">
+              Media
+            </Link>
+          </Col>
           <Col
-            md={5}
+            md={4}
             css={css`
               line-height: 16px;
             `}
@@ -84,7 +99,7 @@ const Footer = () => (
               <a href="tel:+44 (0)20 3725 9181">Tel: +44 (0) 20 3725 9181</a>
             </address>
           </Col>
-          <Col md={3}>
+          <Col>
             <h4>Connect</h4>
             <a href="https://www.facebook.com/davidportillotenor">
               <FaFacebookSquare
