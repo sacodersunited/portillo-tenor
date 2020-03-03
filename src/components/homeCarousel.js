@@ -1,6 +1,5 @@
 import React from "react"
 import { Carousel } from "react-bootstrap"
-import { graphql } from "gatsby"
 import UseCarousel from "../hooks/use-Carousel"
 
 const HomeCarousel = () => {
