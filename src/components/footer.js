@@ -6,6 +6,19 @@ import { css } from "@emotion/core"
 
 const Footer = () => (
   <>
+    <div
+      css={css`
+        background-image: url(https://res.cloudinary.com/davidportillo-tenor/image/upload/v1583174212/homepage/subfooter-bg2_iweejs.png);
+        min-height: 500px;
+        padding-top: 220px;
+        margin-top: 96px;
+      `}
+    >
+      <Container className="text-center text-white p-1">
+        <h2>Music is the universal language of mankind</h2>
+        <h4>- Henry Wadsworth Longfellow</h4>
+      </Container>
+    </div>
     <Navbar
       bg="dark"
       variant="dark"
