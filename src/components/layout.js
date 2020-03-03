@@ -13,7 +13,7 @@ import Footer from "./footer"
 import "bootstrap/dist/css/bootstrap.min.css"
 import { Container } from "react-bootstrap"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, fullWidth = false }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -27,10 +27,20 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <Container>
-        <main>{children}</main>
-      </Container>
-      <Footer />
+      {fullWidth ? (
+        <>
+          <main>{children}</main>
+
+          <Footer />
+        </>
+      ) : (
+        <>
+          <Container>
+            <main>{children}</main>
+          </Container>
+          <Footer />
+        </>
+      )}
     </>
   )
 }
