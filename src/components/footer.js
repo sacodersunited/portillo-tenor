@@ -65,7 +65,7 @@ const Footer = () => (
             `}
           >
             <h4>Address</h4>
-            <address class="site-footer-address site-footer-p">
+            <address className="site-footer-address site-footer-p">
               <a href="http://imgartists.com/artist/david_portillo">
                 IMG Artists, New York
               </a>
@@ -89,7 +89,7 @@ const Footer = () => (
               <a href="tel:+1 212 994 3518 ">Tel: +1 212 994 3518 </a>
             </address>
 
-            <address class="site-footer-address site-footer-p">
+            <address className="site-footer-address site-footer-p">
               <a href="http://www.harrisonparrott.com/artist/profile/david-portillo">
                 Harrison Parrott, London
               </a>

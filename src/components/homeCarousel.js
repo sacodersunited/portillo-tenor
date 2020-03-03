@@ -1,45 +1,19 @@
 import React from "react"
 import { Carousel } from "react-bootstrap"
+import { graphql } from "gatsby"
+import UseCarousel from "../hooks/use-Carousel"
 
-const HomeCarousel = () => (
-  <Carousel>
-    { TODO: dynamically add from carousel tag from cloudinary}
-    <Carousel.Item>
-      <img
-        className="d-block w-100"
-        src="https://res.cloudinary.com/davidportillo-tenor/image/upload/v1583174179/homepage/carousel/img-rotator1_cumeib.png"
-        alt="First slide"
-      />
-      <Carousel.Caption>
-        <h3>First slide label</h3>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-      </Carousel.Caption>
-    </Carousel.Item>
-    <Carousel.Item>
-      <img
-        className="d-block w-100"
-        src="https://res.cloudinary.com/davidportillo-tenor/image/upload/v1583174179/homepage/carousel/carousel4_kzj9tt.png"
-        alt="Third slide"
-      />
-
-      <Carousel.Caption>
-        <h3>Second slide label</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </Carousel.Caption>
-    </Carousel.Item>
-    <Carousel.Item>
-      <img
-        className="d-block w-100"
-        src="https://res.cloudinary.com/davidportillo-tenor/image/upload/v1583174179/homepage/carousel/carousel1_efu08t.png"
-        alt="Third slide"
-      />
-
-      <Carousel.Caption>
-        <h3>Third slide label</h3>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-      </Carousel.Caption>
-    </Carousel.Item>
-  </Carousel>
-)
+const HomeCarousel = () => {
+  const carouselPhotos = UseCarousel()
+  return (
+    <Carousel>
+      {carouselPhotos.map(photo => (
+        <Carousel.Item key={photo.id}>
+          <img className="d-block w-100" src={photo.secureUrl} alt={photo.id} />
+        </Carousel.Item>
+      ))}
+    </Carousel>
+  )
+}
 
 export default HomeCarousel
