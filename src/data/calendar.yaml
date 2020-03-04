@@ -1,101 +1,25 @@
 # Portillo Calendar Dates
-- medwrench:
-  name: Medwrench
-  link: https://www.medwrench.com/
-  img: logos/Medwrench-logo.png
-  colWidth: "3"
-- technation:
-  name: Tech Nation
-  link: https://1technation.com/
-  img: logos/TechNation_logo.png
-  colWidth: "3"
-- tfc:
-  name: TFC
-  link: https://www.tfcstudentinfo.com
-  img: logos/tfc_logo.png
-  colWidth: "3"
-- siRecruiting:
-  name: Stephens International Recruiting
-  link: https://www.bmets-usa.com/
-  img: logos/si-recruiting.png
-  colWidth: "3"
-- cer:
-  name: CER Technology
-  link: http://www.cer-technology.com/
-  img: logos/cer-logo.png
-  colWidth: "3"
-- summit:
-  name: Summit Imaging
-  link: https://www.mysummitimaging.com/
-  img: logos/summit-logo.jpg
-  colWidth: "3"
-- nbcChambers:
-  name: New Braunfels Chamber
-  link: https://www.chamberinnewbraunfels.com/
-  img: logos/NBChambers-logo.png
-  colWidth: "3"
-- chihealth:
-  name: Catholic Health Initiatives
-  link: https://www.chihealth.com/
-  img: logos/chi-health.jpg
-  colWidth: "3"
-- citizens:
-  name: Citizens Medical Center
-  link: https://citizensmedicalcenter.org/
-  img: logos/citizens.png
-  colWidth: "3"
-- cyberTexas:
-  name: Cyber Texas Foundation
-  link: https://www.cybertexas.org
-  img: logos/logo-cyberTexas.png
-  colWidth: "3"
-- charney:
-  name: Charney & Associates
-  link: https://nscharney.com/
-  img: logos/charney-logo.png
-  colWidth: "3"
-- memHermann:
-  name: Memorial Hermann
-  link: http://www.memorialhermann.org/
-  img: logos/memorial-hermann-logo.jpg
-  colWidth: "3"
-- miracosta:
-  name: MiraCosta College
-  link: http://www.miracosta.edu/
-  img: logos/mira-costa-college.png
-  colWidth: "2"
-- army:
-  name: U.S. army
-  link: https://goarmy.com
-  img: logos/ArmyLogo.jpg
-  colWidth: "3"
-- kami:
-  name: Kentucky Association for Medical Instrumentation
-  link: https://kami.camp9.org/
-  img: logos/kami-logo.png
-  colWidth: "2"
-- htmaSC:
-  name: Healthcare Technology Management Association of South Carolina
-  link: https://scba.wildapricot.org/
-  img: logos/HTMA-SC-logo.jpg
-  colWidth: "2"
-- vyaire:
-  name: Vyaire Medical
-  link: https://www.vyaire.com/
-  img: logos/Vyaire_Medical_Art.jpg
-  colWidth: "3"
-- scc:
-  name: Southeastern Community College
-  link: https://www.scciowa.edu/
-  img: logos/scc-logo.png
-  colWidth: "3"
-- imedbiomedical:
-  name: iMed Biomedical
-  link: http://imedbiomedical.com/
-  img: logos/iMed-Biomedical.png
-  colWidth: "4"
-- armypays:
-  name: Army Pays
-  link: https://www.armypays.com/
-  img: logos/REGISTEREDlogo.jpg
-  colWidth: "2"
+- derFliegen:
+  name: DER FLIEGENDE HOLLÄNDER
+  link: https://www.metopera.org/season/2019-20-season/der-fliegende-hollander/
+  location: New York
+  operaHouse:
+  role:
+  startDate: 2020-03-01
+  endDate: 2020-03-05
+- pickersAwakening:
+  name: PICKER’S AWAKENINGS
+  link: https://www.opera-stl.org/buy-tickets/2020-festival-season
+  location: Missouri
+  operaHouse:
+  role:
+  startDate: 2020-06-01
+  endDate: 2020-06-05
+- haydnsOrlanoPaladino:
+  name: HAYDN’S ORLANDO PALADINO
+  link: https://www.staatsoper.de/en/productioninfo/orlando-paladino.html
+  location: Germany
+  operaHouse:
+  role:
+  startDate: 2020-07-01
+  endDate: 2020-07-05
