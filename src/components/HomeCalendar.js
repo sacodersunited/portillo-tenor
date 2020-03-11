@@ -2,13 +2,15 @@ import React from "react"
 import { Container } from "react-bootstrap"
 import UseCalendar from "../hooks/use-Calendar"
 import { Row, Col, Button } from "react-bootstrap"
+import { Link } from "gatsby"
+import { FaChevronRight } from "react-icons/fa"
 
 const HomeCalendar = () => {
   const calendarEvents = UseCalendar()
 
   return (
     <Container className="mt-5 mb-5">
-      <h2 className="text-center text-uppercase">Upcoming Performances</h2>
+      <h2 className="text-center text-uppercase h1">Upcoming Performances</h2>
       {calendarEvents.map(event => (
         <Row>
           <Col>
@@ -26,6 +28,9 @@ const HomeCalendar = () => {
           </Col>
         </Row>
       ))}
+      <Link className="text-center d-block h4" to="/calendar">
+        View Calendar <FaChevronRight />
+      </Link>
     </Container>
   )
 }

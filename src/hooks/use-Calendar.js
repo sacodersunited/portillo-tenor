@@ -9,7 +9,7 @@ const UseCalendar = () => {
             id
             name
             link
-            startDate
+            startDate(formatString: "MMM")
             location
             endDate
           }
