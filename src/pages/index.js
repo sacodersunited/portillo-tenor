@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import HomeCarousel from "../components/homeCarousel"
 import HomeCalendar from "../components/HomeCalendar"
 import HomeAcclaims from "../components/HomeAcclaims"
+import HomeMedia from "../components/HomeMedia"
 
 const IndexPage = () => (
   <Layout fullWidth>
@@ -12,6 +13,7 @@ const IndexPage = () => (
     <HomeCarousel />
     <HomeCalendar />
     <HomeAcclaims />
+    <HomeMedia />
   </Layout>
 )
 

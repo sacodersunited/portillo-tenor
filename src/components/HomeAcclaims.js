@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 
 export default function HomeAcclaims() {
   return (
-    <section className="acclaims">
+    <>
       <Container>
         <h2 className="text-center text-uppercase h1">Acclaims</h2>
       </Container>
@@ -52,6 +52,6 @@ export default function HomeAcclaims() {
         View Acclaims
         <FaChevronRight />
       </Link>
-    </section>
+    </>
   )
 }
