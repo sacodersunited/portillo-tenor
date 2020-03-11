@@ -1,6 +1,5 @@
 import React from "react"
 import { Container } from "react-bootstrap"
-import UseCalendar from "../hooks/use-Calendar"
 import { Row, Col, ResponsiveEmbed } from "react-bootstrap"
 import { Link } from "gatsby"
 import { FaChevronRight } from "react-icons/fa"
