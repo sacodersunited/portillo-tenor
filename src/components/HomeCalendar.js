@@ -29,7 +29,8 @@ const HomeCalendar = () => {
         </Row>
       ))}
       <Link className="text-center d-block h4" to="/calendar">
-        View Calendar <FaChevronRight />
+        View Calendar
+        <FaChevronRight />
       </Link>
     </Container>
   )

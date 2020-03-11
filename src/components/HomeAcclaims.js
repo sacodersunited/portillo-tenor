@@ -1,5 +1,7 @@
 import React from "react"
 import { Container, Carousel } from "react-bootstrap"
+import { FaChevronRight } from "react-icons/fa"
+import { Link } from "gatsby"
 
 export default function HomeAcclaims() {
   return (
@@ -7,7 +9,7 @@ export default function HomeAcclaims() {
       <Container>
         <h2 className="text-center text-uppercase h1">Acclaims</h2>
       </Container>
-      <Carousel>
+      <Carousel indicators={false} controls={false}>
         <Carousel.Item>
           <img
             className="d-block w-100"
@@ -46,6 +48,10 @@ export default function HomeAcclaims() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      <Link className="text-center d-block h4" to="/acclaims">
+        View Acclaims
+        <FaChevronRight />
+      </Link>
     </section>
   )
 }
