@@ -2,16 +2,26 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import { Navbar, Nav, Container } from "react-bootstrap"
+import Logo from "../images/logo.svg"
 
 const Header = ({ siteTitle }) => (
   <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
     <Container>
       <Link to="/">
-        <Navbar.Brand>{siteTitle}</Navbar.Brand>
+        <Navbar.Brand>
+          <img
+            src={Logo}
+            width="340"
+            height="30"
+            className="d-inline-block align-top"
+            alt="React Bootstrap logo"
+          />
+        </Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
+
+      <Navbar.Collapse className="justify-content-end">
+        <Nav>
           <Link to="/biography" className="nav-link" activeClassName="active">
             Biography
           </Link>

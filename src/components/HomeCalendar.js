@@ -23,7 +23,7 @@ const HomeCalendar = () => {
           </Col>
           <Col>
             <a href={event.link}>
-              <Button>Tickets</Button>
+              <Button variant="outline-primary">Tickets</Button>
             </a>
           </Col>
         </Row>
