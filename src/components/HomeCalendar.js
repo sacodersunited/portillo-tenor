@@ -12,7 +12,7 @@ const HomeCalendar = () => {
     <Container className="mt-5 mb-5">
       <h2 className="text-center text-uppercase h1">Upcoming Performances</h2>
       {calendarEvents.map(event => (
-        <Row>
+        <Row key={event.Id}>
           <Col>
             <p>{event.startDate}</p>
             <hr />

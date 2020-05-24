@@ -12,6 +12,7 @@ export default function HomeMedia() {
         <Col md={{ span: 9, offset: 2 }}>
           <ResponsiveEmbed aspectRatio="16by9">
             <iframe
+              title='vimeo video of David Portillo tenor'
               class="embed-responsive-item"
               src="https://player.vimeo.com/video/154792661?title=0&byline=0&portrait=0"
               width="760"
