@@ -2,29 +2,39 @@ import { graphql, useStaticQuery } from "gatsby"
 
 const UseCalendar = () => {
   const data = useStaticQuery(graphql`
-    query {
-      allCalendarYaml(limit: 3) {
+    query StrapiEvents {
+      allStrapiEvent {
         edges {
           node {
-            id
-            name
+            strapiId
+            published
+            type
+            title
+            role
+            start_date
+            end_date
+            opera_house
+            city
+            state_country
             link
-            startDate(formatString: "MMM")
-            location
-            endDate
           }
         }
       }
     }
   `)
 
-  return data.allCalendarYaml.edges.map(calendarEvent => ({
-    id: calendarEvent.node.id,
-    name: calendarEvent.node.name,
+  return data.allStrapiEvent.edges.map(calendarEvent => ({
+    id: calendarEvent.node.strapiId,
+    isPublished: calendarEvent.node.published,
+    type: calendarEvent.node.type,
+    title: calendarEvent.node.title,
+    role: calendarEvent.node.role,
+    startDate: calendarEvent.node.start_date,
+    endDate: calendarEvent.node.end_date,
+    operaHouse: calendarEvent.node.opera_house,
+    city: calendarEvent.node.city,
+    stateCountry: calendarEvent.node.state_country,
     link: calendarEvent.node.link,
-    startDate: calendarEvent.node.startDate,
-    endDate: calendarEvent.node.endDate,
-    location: calendarEvent.node.location,
   }))
 }
 

@@ -7,22 +7,25 @@ import { FaChevronRight } from "react-icons/fa"
 
 const HomeCalendar = () => {
   const calendarEvents = UseCalendar()
+  const publishedEvents = calendarEvents.filter(
+    event => event.isPublished === true
+  )
 
   return (
     <Container className="mt-5 mb-5">
       <h2 className="text-center text-uppercase h1">Upcoming Performances</h2>
-      {calendarEvents.map(event => (
-        <Row key={event.Id}>
+      {publishedEvents.map(event => (
+        <Row key={event.id}>
           <Col>
             <p>{event.startDate}</p>
             <hr />
-            <p>{event.location}</p>
+            <p>{event.city}</p>
           </Col>
           <Col>
-            <p>{event.name}</p>
+            <p>{event.title}</p>
           </Col>
           <Col>
-            <a href={event.link}>
+            <a href={event.link} target="_blank">
               <Button variant="outline-primary">Tickets</Button>
             </a>
           </Col>
