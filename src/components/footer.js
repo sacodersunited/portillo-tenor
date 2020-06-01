@@ -43,7 +43,13 @@ const Footer = () => (
               <a href="https://www.gatsbyjs.org">Gatsby</a>
             </p>
           </Col>
-          <Col>
+          <Col
+            css={css`
+              .nav-link {
+                padding: 0;
+              }
+            `}
+          >
             <h4>Links</h4>
             <Link to="/biography" className="text-white nav-link">
               Biography
