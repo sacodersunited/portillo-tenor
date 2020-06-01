@@ -18,6 +18,7 @@
     "gatsby-plugin-sharp": "^2.6.9",
     "gatsby-source-cloudinary": "^0.1.14",
     "gatsby-source-filesystem": "^2.3.8",
+    "gatsby-source-strapi": "0.0.12",
     "gatsby-transformer-sharp": "^2.5.3",
     "gatsby-transformer-yaml": "^2.4.2",
     "prop-types": "^15.7.2",
