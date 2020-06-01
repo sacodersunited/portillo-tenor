@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/acclaims",
+      "handler": "acclaim.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/acclaims/count",
+      "handler": "acclaim.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/acclaims/:id",
+      "handler": "acclaim.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/acclaims",
+      "handler": "acclaim.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/acclaims/:id",
+      "handler": "acclaim.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/acclaims/:id",
+      "handler": "acclaim.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

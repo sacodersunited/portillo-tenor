@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "acclaims",
+  "info": {
+    "name": "acclaim"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "review",
+        "publication"
+      ]
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "reviewer": {
+      "type": "string",
+      "required": true
+    },
+    "snippet": {
+      "type": "text",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    },
+    "acclaim_thumbnail": {
+      "model": "acclaim-thumbnail",
+      "via": "acclaims"
+    }
+  }
+}

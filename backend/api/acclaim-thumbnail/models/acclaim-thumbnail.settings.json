@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "acclaim_thumbnails",
+  "info": {
+    "name": "acclaim thumbnail"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "thumbnail": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "acclaims": {
+      "via": "acclaim_thumbnail",
+      "collection": "acclaim"
+    }
+  }
+}
