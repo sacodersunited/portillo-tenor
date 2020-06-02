@@ -25,7 +25,7 @@ const HomeCalendar = () => {
             <p>{event.title}</p>
           </Col>
           <Col>
-            <a href={event.link} target="_blank">
+            <a href={event.link} target="_blank" rel="noreferrer">
               <Button variant="outline-primary">Tickets</Button>
             </a>
           </Col>
