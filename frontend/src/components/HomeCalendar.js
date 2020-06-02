@@ -17,9 +17,7 @@ const HomeCalendar = () => {
       {publishedEvents.map(event => (
         <Row key={event.id}>
           <Col>
-            <a href="https://google.com" target="_blank">
-              <p>{event.startDate}</p>
-            </a>
+            <p>{event.startDate}</p>
             <hr />
             <p>{event.city}</p>
           </Col>
