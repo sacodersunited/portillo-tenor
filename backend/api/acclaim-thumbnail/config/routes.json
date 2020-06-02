@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/acclaim-thumbnails",
+      "handler": "acclaim-thumbnail.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/acclaim-thumbnails/count",
+      "handler": "acclaim-thumbnail.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/acclaim-thumbnails/:id",
+      "handler": "acclaim-thumbnail.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/acclaim-thumbnails",
+      "handler": "acclaim-thumbnail.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/acclaim-thumbnails/:id",
+      "handler": "acclaim-thumbnail.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/acclaim-thumbnails/:id",
+      "handler": "acclaim-thumbnail.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

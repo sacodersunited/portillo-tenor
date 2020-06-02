@@ -2,51 +2,34 @@ import React from "react"
 import { Container, Carousel } from "react-bootstrap"
 import { FaChevronRight } from "react-icons/fa"
 import { Link } from "gatsby"
+import UseFeaturedAcclaims from "../hooks/use-FeaturedAcclaims"
 
 export default function HomeAcclaims() {
+  const acclaims = UseFeaturedAcclaims()
+
   return (
     <>
       <Container>
         <h2 className="text-center text-uppercase h1">Acclaims</h2>
       </Container>
-      <Carousel indicators={false} controls={false}>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://via.placeholder.com/1400x200"
-            alt="First slide"
-          />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://via.placeholder.com/1400x200"
-            alt="Third slide"
-          />
-
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://via.placeholder.com/1400x200"
-            alt="Third slide"
-          />
-
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
+      <Carousel indicators={true} controls={false}>
+        {acclaims.map(acclaim => (
+          <Carousel.Item
+            key={acclaim.id}
+            style={{
+              minHeight: "260px",
+              padding: "48px 0",
+              backgroundColor: "#262B2E",
+            }}
+          >
+            <a href={acclaim.link} target="_blank" rel="noreferrer">
+              <Carousel.Caption>
+                <p>{acclaim.snippet}</p>
+                <p style={{ color: "#e58e1a" }}>{acclaim.reviewer}</p>
+              </Carousel.Caption>
+            </a>
+          </Carousel.Item>
+        ))}
       </Carousel>
       <Link className="text-center d-block h4" to="/acclaims">
         View Acclaims
