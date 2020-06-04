@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "backend": "cd backend && npm run develop",
-    "frontend": "cd frontend && npm run clean npm run start",
+    "frontend": "cd frontend && npm run clean && npm run develop",
     "start": "npm run backend & npm run frontend",
     "clean": "cd frontend && npm run clean",
-    "setup": "cd frontend && npm run clean npm run build",
+    "setup": "cd frontend && npm run clean && npm run build",
     "build": "npm run backend & npm run setup"
   },
   "repository": {
