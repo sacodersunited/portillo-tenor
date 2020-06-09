@@ -29,6 +29,15 @@
     },
     "description": {
       "type": "richtext"
+    },
+    "bio_pic": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
     }
   }
 }

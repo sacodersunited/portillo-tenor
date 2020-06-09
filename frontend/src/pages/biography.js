@@ -2,7 +2,8 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import UseBio from "../hooks/use-bio"
-import { Container, Row, Col, Image, Button } from "react-bootstrap"
+import Image from "gatsby-image"
+import { Container, Row, Col, Button } from "react-bootstrap"
 import {
   FaFacebookSquare,
   FaTwitterSquare,
@@ -11,7 +12,6 @@ import {
 import ReactMarkdown from "react-markdown"
 
 const Biography = () => {
-  // const bioStrapi = UseBio()
   const { strapiBiography } = UseBio()
   return (
     <Layout>
@@ -20,7 +20,10 @@ const Biography = () => {
       <Container>
         <Row>
           <Col md={8}>
-            <Image src="https://picsum.photos/687/552" fluid />
+            <Image
+              fluid={strapiBiography.bio_pic.childImageSharp.fluid}
+              alt="Biography picture"
+            />
           </Col>
           <Col md={4}>
             <h2 className="text-center bio-name">David Portillo</h2>

@@ -10,6 +10,13 @@ const UseBio = () => {
         bio_pdf {
           publicURL
         }
+        bio_pic {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         description
       }
     }
