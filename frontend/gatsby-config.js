@@ -59,6 +59,8 @@ module.exports = {
           "event",
           "acclaim",
         ],
+        //If using single types place them in this array.
+        singleTypes: [`biography`],
         queryLimit: 1000,
       },
     },
