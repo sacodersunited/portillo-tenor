@@ -17,14 +17,6 @@ const UseBio = () => {
   `)
 
   return data
-  // .strapiBiography.map(bio => ({
-  //   id: bio.strapiId,
-  //   twitter: bio.twitter,
-  //   facebook: bio.facebook,
-  //   instagram: bio.instagram,
-  //   bioPdf: bio.bio_pdf.publicURL,
-  //   descr: bio.description,
-  // }))
 }
 
 export default UseBio
