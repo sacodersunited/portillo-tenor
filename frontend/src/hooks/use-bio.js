@@ -4,7 +4,6 @@ const UseBio = () => {
   const data = useStaticQuery(graphql`
     query BioPage {
       strapiBiography {
-        strapiId
         twitter
         facebook
         instagram
