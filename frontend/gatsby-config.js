@@ -7,13 +7,6 @@ module.exports = {
     author: `@fpigeonjr`,
   },
   plugins: [
-    `gatsby-transformer-yaml`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `./src/data/`,
-      },
-    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -37,19 +30,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-emotion`,
-    {
-      resolve: `gatsby-source-cloudinary`,
-      options: {
-        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
-        apiKey: process.env.CLOUDINARY_API_KEY,
-        apiSecret: process.env.CLOUDINARY_API_SECRET,
-        resourceType: "",
-        type: ``,
-        maxResults: 500,
-        tags: true,
-        prefix: ``,
-      },
-    },
     {
       resolve: "gatsby-source-strapi",
       options: {
