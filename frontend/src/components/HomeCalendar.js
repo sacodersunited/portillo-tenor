@@ -6,10 +6,12 @@ import { Link } from "gatsby"
 import { FaChevronRight } from "react-icons/fa"
 
 const HomeCalendar = () => {
+  const today = new Date()
   const calendarEvents = UseCalendar()
-  const publishedEvents = calendarEvents.filter(
-    event => event.isPublished === true
-  )
+  // filter events to only published and future events and limit 3
+  const publishedEvents = calendarEvents
+    .filter(event => event.isPublished && today < new Date(event.startDate))
+    .slice(0, 2)
 
   return (
     <Container className="mt-5 mb-5">

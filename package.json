@@ -1,0 +1,25 @@
+{
+  "name": "portillo-tenor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "backend": "cd backend && npm run develop",
+    "frontend": "cd frontend && npm run clean && npm run develop",
+    "start": "npm run backend & npm run frontend",
+    "clean": "cd frontend && npm run clean",
+    "setup": "cd frontend && npm run clean && npm run build",
+    "build": "npm run backend & npm run setup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sacodersunited/portillo-tenor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sacodersunited/portillo-tenor/issues"
+  },
+  "homepage": "https://github.com/sacodersunited/portillo-tenor#readme"
+}
