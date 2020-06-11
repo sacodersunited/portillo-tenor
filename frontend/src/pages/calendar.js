@@ -7,7 +7,7 @@ import Moment from "react-moment"
 const Calendar = () => {
   const calendarEvents = UseAllCalendar()
   const currentYear = new Date().getFullYear()
-  // const currentEvents = calendarEvents.filter(isFutureEvent)
+
   // console.log(`The year in our Lord ${currentYear}`)
 
   const today = new Date()

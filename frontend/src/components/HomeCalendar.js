@@ -10,9 +10,7 @@ const HomeCalendar = () => {
   const calendarEvents = UseCalendar()
   // filter events to only published and future events and limit 3
   const publishedEvents = calendarEvents
-    .filter(
-      event => event.isPublished === true && today < new Date(event.startDate)
-    )
+    .filter(event => event.isPublished && today < new Date(event.startDate))
     .slice(0, 2)
 
   return (
