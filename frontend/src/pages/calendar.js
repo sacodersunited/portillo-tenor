@@ -12,13 +12,14 @@ const Calendar = () => {
   // console.log(`The year in our Lord ${currentYear}`)
 
   const today = new Date()
-  const futureEvents = calendarEvents.filter(
-    event => today < new Date(event.startDate)
-  )
 
-  const pastEvents = calendarEvents.filter(
-    event => today > new Date(event.startDate)
-  )
+  const futureEvents = calendarEvents
+    .sort((a, b) => new Date(a.startDate) - new Date(b.startDate))
+    .filter(event => today < new Date(event.startDate))
+
+  const pastEvents = calendarEvents
+    .sort((a, b) => new Date(b.startDate) - new Date(a.startDate))
+    .filter(event => today > new Date(event.endDate))
 
   return (
     <Layout>
@@ -31,7 +32,7 @@ const Calendar = () => {
       {pastEvents.map(event => (
         <CalendarItem event={event} isCalendarPage />
       ))}
-      <pre>{JSON.stringify(futureEvents, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(futureEvents, null, 2)}</pre> */}
     </Layout>
   )
 }
