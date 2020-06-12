@@ -6,6 +6,7 @@ import Moment from "react-moment"
 import CalendarItem from "../components/calendar-item"
 
 const Calendar = () => {
+  // TODO: Group by Year
   const calendarEvents = UseAllCalendar()
   const currentYear = new Date().getFullYear()
 

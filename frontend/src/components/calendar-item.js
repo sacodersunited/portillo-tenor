@@ -1,5 +1,6 @@
 import React from "react"
 import { Row, Col, Button } from "react-bootstrap"
+import Moment from "react-moment"
 
 const CalendarItem = ({ event, isCalendarPage }) => {
   const today = new Date()
@@ -7,7 +8,9 @@ const CalendarItem = ({ event, isCalendarPage }) => {
   return (
     <Row key={event.id}>
       <Col>
-        <p>{event.startDate}</p>
+        <p>
+          <Moment format="MMM DD">{event.startDate}</Moment>
+        </p>
         <hr />
         <p>{event.city}</p>
       </Col>
