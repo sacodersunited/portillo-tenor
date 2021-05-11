@@ -12,9 +12,10 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "review",
-        "publication"
-      ]
+        "press_feature",
+        "acclaim"
+      ],
+      "default": "acclaim"
     },
     "featured": {
       "type": "boolean",
