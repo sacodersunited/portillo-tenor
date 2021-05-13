@@ -55,6 +55,7 @@ const Biography = () => {
         </Row>
         <Row className="mt-5">
           <Col md={{ span: 8, offset: 2 }}>
+            <h1 className="text-center">BIOGRAPHY</h1>
             <ReactMarkdown source={strapiBiography.description} />
           </Col>
         </Row>
