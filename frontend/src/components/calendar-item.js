@@ -4,7 +4,7 @@ import Moment from "react-moment"
 
 const CalendarItem = ({ event, isCalendarPage }) => {
   const today = new Date()
-
+  console.log("calender item", event)
   return (
     <Row key={event.id}>
       <Col>
@@ -26,6 +26,7 @@ const CalendarItem = ({ event, isCalendarPage }) => {
         )}
       </Col>
     </Row>
+    // </>
   )
 }
 

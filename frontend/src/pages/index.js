@@ -7,8 +7,8 @@ import HomeAcclaims from "../components/HomeAcclaims"
 import HomeMedia from "../components/HomeMedia"
 
 const IndexPage = () => (
-  <Layout fullWidth>
-    <SEO title="Home" />
+  <Layout isFullWidth>
+    <SEO title="David Portillo Tenor home" />
     <HomeCarousel />
     <HomeCalendar />
     <HomeAcclaims />
