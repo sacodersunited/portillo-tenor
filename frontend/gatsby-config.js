@@ -38,7 +38,10 @@ module.exports = {
           // List of the Content Types you want to be able to request from Gatsby.
           "event",
           "acclaim",
-          "carousels",
+          "carousel",
+          "video",
+          "merch",
+          "photo-album",
         ],
         //If using single types place them in this array.
         singleTypes: [`biography`],

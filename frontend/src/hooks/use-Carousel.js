@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 const UseCarousel = () => {
   const data = useStaticQuery(graphql`
     query HomeCarousel {
-      allStrapiCarousels(filter: { active: { eq: true } }) {
+      allStrapiCarousel(filter: { active: { eq: true } }) {
         edges {
           node {
             strapiId
@@ -22,7 +22,7 @@ const UseCarousel = () => {
     }
   `)
 
-  return data.allStrapiCarousels.edges.map(carouselItem => ({
+  return data.allStrapiCarousel.edges.map(carouselItem => ({
     id: carouselItem.node.strapiId,
     caption: carouselItem.node.caption,
     active: carouselItem.node.active,
