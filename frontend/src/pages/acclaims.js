@@ -3,9 +3,33 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BackgroundSection from "../components/backgroundSection"
 import { graphql, useStaticQuery } from "gatsby"
-import { Container } from "react-bootstrap"
+import { Container, Col, Row, Card } from "react-bootstrap"
+import UsePressFeature from "../hooks/use-PressFeature"
+import Image from "gatsby-image"
+
+const PressCard = ({ data }) => {
+  return (
+    <React.Fragment>
+      <Col md={4}>
+        <Image fluid={data.image} alt={data.reviewer} />
+      </Col>
+      <Col md={{ span: 7, offset: 1 }}>
+        <Card>
+          <Card.Body>
+            <Card.Text>{data.snippet}</Card.Text>
+            <Card.Link href={data.link} target="_blank">
+              -{data.reviewer}
+            </Card.Link>
+          </Card.Body>
+        </Card>
+      </Col>
+    </React.Fragment>
+  )
+}
 
 const Acclaims = () => {
+  const pressFeatures = UsePressFeature()
+
   const data = useStaticQuery(
     graphql`
       query {
@@ -28,7 +52,12 @@ const Acclaims = () => {
       <BackgroundSection title="Acclaims" fluid={imageData} />
       <SEO title="David Portillo tenor acclaims awards recognition" />
       <Container>
-        <h1>Hi from the Acclaims page</h1>
+        <h2 className="text-center mb-5">Press Features</h2>
+        {pressFeatures.map(pressFeature => (
+          <Row className="mb-5" key={pressFeature.id}>
+            <PressCard data={pressFeature} />
+          </Row>
+        ))}
       </Container>
     </Layout>
   )
