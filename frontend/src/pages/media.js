@@ -16,18 +16,78 @@ const Media = () => {
             }
           }
         }
+
+        videos: allStrapiVideo {
+          nodes {
+            id
+            active
+            title
+            url
+          }
+        }
+
+        merch: allStrapiMerch {
+          nodes {
+            id
+            title
+            strapiId
+            website
+            description
+            image {
+              childImageSharp {
+                fluid {
+                  base64
+                  originalImg
+                  originalName
+                }
+                fixed {
+                  src
+                }
+              }
+            }
+          }
+        }
+
+        photoalbum: allStrapiPhotoAlbum {
+          nodes {
+            image {
+              name
+              url
+              formats {
+                medium {
+                  childImageSharp {
+                    fixed {
+                      src
+                      base64
+                    }
+                  }
+                }
+              }
+              mime
+              size
+            }
+            title
+            strapiId
+            description
+            id
+          }
+        }
       }
     `
   )
 
   // Set ImageData.
   const imageData = data.desktop.childImageSharp.fluid
+  console.log("data", data)
   return (
     <Layout isFullWidth>
       <SEO title="David Portillo tenor media, videos, pictures, and albums for sale" />
       <BackgroundSection title="Media" fluid={imageData} />
       <Container>
         <h1>Hi from the Media page</h1>
+        {data.videos.nodes.map(video => {
+          return <a href={video.url}>{video.title}</a>
+        })}
       </Container>
     </Layout>
   )
