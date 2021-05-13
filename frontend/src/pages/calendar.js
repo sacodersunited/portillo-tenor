@@ -4,14 +4,11 @@ import SEO from "../components/seo"
 import UseAllCalendar from "../hooks/use-AllCalendar"
 import Moment from "react-moment"
 import CalendarItem from "../components/calendar-item"
+import { FaToiletPaper } from "react-icons/fa"
 
 const Calendar = () => {
   // TODO: Group by Year
   const calendarEvents = UseAllCalendar()
-  const currentYear = new Date().getFullYear()
-
-  // console.log(`The year in our Lord ${currentYear}`)
-
   const today = new Date()
 
   const futureEvents = calendarEvents
@@ -22,6 +19,14 @@ const Calendar = () => {
     .sort((a, b) => new Date(b.startDate) - new Date(a.startDate))
     .filter(event => today > new Date(event.endDate))
 
+  const uniqueYears = pastEvents
+    .reduce((total, event) => {
+      const newEndDate = new Date(event.endDate)
+      total.push(newEndDate.getFullYear())
+      return total
+    }, [])
+    .filter((item, i, ar) => ar.indexOf(item) === i)
+
   return (
     <Layout>
       <SEO title="David Portillo tenor calendar of events, shows, productions " />
@@ -30,10 +35,40 @@ const Calendar = () => {
         <CalendarItem event={event} isCalendarPage />
       ))}
       <h1>Past Perfomances</h1>
-      {pastEvents.map(event => (
-        <CalendarItem event={event} isCalendarPage />
-      ))}
-      {/* <pre>{JSON.stringify(futureEvents, null, 2)}</pre> */}
+      {uniqueYears.length > 0 ? (
+        <div class="col-md-12">
+          <h2 class="text-center calendar-page-h2-year">{uniqueYears[0]}</h2>
+        </div>
+      ) : null}
+      {uniqueYears.length > 0
+        ? pastEvents
+            .filter(event => {
+              const newEndDate = new Date(event.endDate).getFullYear()
+              if (newEndDate === uniqueYears[0]) {
+                return event
+              }
+              return null
+            })
+            .map(calEvent => <CalendarItem event={calEvent} isCalendarPage />)
+        : null}
+
+      {uniqueYears.length > 1 ? (
+        <div class="col-md-12">
+          <h2 class="text-center calendar-page-h2-year">{uniqueYears[1]}</h2>
+        </div>
+      ) : null}
+
+      {uniqueYears.length > 1
+        ? pastEvents
+            .filter(event => {
+              const newEndDate = new Date(event.endDate).getFullYear()
+              if (newEndDate === uniqueYears[1]) {
+                return event
+              }
+              return null
+            })
+            .map(calEvent => <CalendarItem event={calEvent} isCalendarPage />)
+        : null}
     </Layout>
   )
 }
