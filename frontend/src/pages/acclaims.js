@@ -5,6 +5,7 @@ import BackgroundSection from "../components/backgroundSection"
 import { graphql, useStaticQuery } from "gatsby"
 import { Container, Col, Row, Card } from "react-bootstrap"
 import UsePressFeature from "../hooks/use-PressFeature"
+import UseAcclaims from "../hooks/use-Acclaims"
 import Image from "gatsby-image"
 
 const PressCard = ({ data }) => {
@@ -29,6 +30,7 @@ const PressCard = ({ data }) => {
 
 const Acclaims = () => {
   const pressFeatures = UsePressFeature()
+  const acclaims = UseAcclaims()
 
   const data = useStaticQuery(
     graphql`
@@ -58,6 +60,9 @@ const Acclaims = () => {
             <PressCard data={pressFeature} />
           </Row>
         ))}
+        <h2 className="text-center mb-5">Acclaims</h2>
+        {/* TODO: Add Acclaims grouped by role */}
+        <pre>{JSON.stringify(acclaims, null, 2)}</pre>
       </Container>
     </Layout>
   )
