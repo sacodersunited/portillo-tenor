@@ -1,16 +1,20 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Image from "gatsby-image"
 import BackgroundSection from "../components/backgroundSection"
 import { graphql, useStaticQuery } from "gatsby"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Card } from "react-bootstrap"
 import { FaAmazon, FaApple, FaSpotify, FaGlobe } from "react-icons/fa"
 import ReactPlayer from "react-player"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Lightbox from "react-image-lightbox"
+import "react-image-lightbox/style.css" // This only needs to be imported once in your app
 import "../css/media.css"
 
-const Media = () => {
+function Media() {
+  const [isOpen, setIsOpen] = useState(false)
+  const [images, setImages] = useState([])
+  const [photoIndex, setPhotoIndex] = useState(0)
+
   const data = useStaticQuery(
     graphql`
       query {
@@ -73,11 +77,18 @@ const Media = () => {
     `
   )
 
+  function clickThumbnail(e, arrImages) {
+    e.preventDefault()
+    setIsOpen(!isOpen)
+
+    setImages(arrImages)
+    console.log("clicked thumbnail", arrImages)
+  }
+
   // Set ImageData.
   const imageData = data.desktop.childImageSharp.fluid
-  // const headerImage = getImage(data.blogPost.avatar)
   const featured = data.photoalbum.nodes.filter(album => album.strapiId === 21)
-  // const featuredImage = getImage(featured[0].image[0])
+
   return (
     <Layout isFullWidth>
       <SEO title="David Portillo tenor media, videos, pictures, and albums for sale" />
@@ -130,60 +141,88 @@ const Media = () => {
                   style={{ marginBottom: "10px" }}
                   key={index}
                 >
-                  <img
-                    src={merch.image.localFile.publicURL}
-                    style={{ minHeight: "327px" }}
-                    className="img-responsive center-block"
-                  />
-                  <h5 className="text-left">{merch.title}</h5>
-                  <section className="media-meta text-left">
-                    <p>{merch.description}</p>
-                  </section>
-                  <Row>
-                    <Col md={3}>
-                      {merch.itunes !== "blank" ? (
-                        <a href={merch.itunes} style={{ fontSize: "smaller" }}>
-                          <FaApple size={16} style={{ paddingRight: "5px" }} />
-                          Itunes
-                        </a>
-                      ) : null}
-                    </Col>
-                    <Col md={4}>
-                      {merch.website !== "blank" ? (
-                        <a href={merch.website} style={{ fontSize: "smaller" }}>
-                          <FaGlobe size={16} style={{ paddingRight: "5px" }} />
-                          Website
-                        </a>
-                      ) : null}
-                    </Col>
-                    <Col md={4}>
-                      {merch.amazon !== "blank" ? (
-                        <React.Fragment>
-                          <a
-                            href={merch.amazon}
-                            style={{ fontSize: "smaller" }}
-                          >
-                            <FaAmazon
-                              size={16}
-                              style={{ paddingRight: "5px" }}
-                            />
-                            Amazon
-                          </a>
-                        </React.Fragment>
-                      ) : null}
-                    </Col>
-                    <Col md={3}>
-                      {merch.spotify !== "blank" ? (
-                        <a href={merch.spotify} style={{ fontSize: "smaller" }}>
-                          <FaSpotify
-                            size={16}
-                            style={{ paddingRight: "5px" }}
-                          />
-                          Spotify
-                        </a>
-                      ) : null}
-                    </Col>
-                  </Row>
+                  <Card
+                    border="primary"
+                    style={{
+                      width: "20rem",
+                      minHeight: "690px",
+                      marginBottom: "30px",
+                    }}
+                  >
+                    <Card.Img
+                      variant="top"
+                      src={merch.image.localFile.publicURL}
+                      style={{ minHeight: "327px" }}
+                      className="img-responsive center-block"
+                    />
+                    <Card.Body>
+                      <Card.Title>{merch.title}</Card.Title>
+                      <Card.Text>{merch.description}</Card.Text>
+                      <Row>
+                        <Col md={6}>
+                          {merch.itunes !== "blank" ? (
+                            <a
+                              href={merch.itunes}
+                              style={{ fontSize: "smaller" }}
+                            >
+                              <FaApple
+                                size={16}
+                                style={{ paddingRight: "5px" }}
+                              />
+                              Itunes
+                            </a>
+                          ) : null}
+                        </Col>
+                        <Col md={6}>
+                          {merch.website !== "blank" ? (
+                            <a
+                              href={merch.website}
+                              style={{ fontSize: "smaller" }}
+                            >
+                              <FaGlobe
+                                size={16}
+                                style={{ paddingRight: "5px" }}
+                              />
+                              Website
+                            </a>
+                          ) : null}
+                        </Col>
+                      </Row>
+
+                      <Row>
+                        <Col md={6}>
+                          {merch.amazon !== "blank" ? (
+                            <React.Fragment>
+                              <a
+                                href={merch.amazon}
+                                style={{ fontSize: "smaller" }}
+                              >
+                                <FaAmazon
+                                  size={16}
+                                  style={{ paddingRight: "5px" }}
+                                />
+                                Amazon
+                              </a>
+                            </React.Fragment>
+                          ) : null}
+                        </Col>
+                        <Col md={6}>
+                          {merch.spotify !== "blank" ? (
+                            <a
+                              href={merch.spotify}
+                              style={{ fontSize: "smaller" }}
+                            >
+                              <FaSpotify
+                                size={16}
+                                style={{ paddingRight: "5px" }}
+                              />
+                              Spotify
+                            </a>
+                          ) : null}
+                        </Col>
+                      </Row>
+                    </Card.Body>
+                  </Card>
                 </Col>
               )
             })}
@@ -197,15 +236,18 @@ const Media = () => {
               ></img>
             </Col>
             {data.photoalbum.nodes.map((album, index) => {
-              console.log("album", album)
+              // console.log("album", album)
 
-              const foundThumb = album.image.filter(image => {
-                if (image.name.indexOf("thumb") > 0) {
-                  return image
-                }
-                return null
+              const foundThumb = album.image.filter(
+                image => image.name.indexOf("thumb") > 0
+              )
+              // console.log("foundThumb", foundThumb)
+
+              const arrImages = album.image.map(img => {
+                return img.localFile.publicURL
               })
-              console.log("foundThumb", foundThumb)
+
+              // console.log("arrImages", arrImages)
 
               if (
                 album.image === null ||
@@ -226,6 +268,7 @@ const Media = () => {
                       alt={album.title}
                       className="center-block img-responsive img-rounded pic-grid"
                       style={{ maxHeight: "233px", borderRadius: "30px" }}
+                      onClick={e => clickThumbnail(e, arrImages)}
                     />
                     <h4
                       className="text-center image-title"
@@ -237,6 +280,25 @@ const Media = () => {
                 )
               }
             })}
+
+            {isOpen && (
+              <Lightbox
+                mainSrc={images[photoIndex]}
+                nextSrc={images[(photoIndex + 1) % images.length]}
+                prevSrc={
+                  images[(photoIndex + images.length - 1) % images.length]
+                }
+                onCloseRequest={() => setIsOpen(false)}
+                onMovePrevRequest={() =>
+                  setPhotoIndex(
+                    (photoIndex + images.length - 1) % images.length
+                  )
+                }
+                onMoveNextRequest={() =>
+                  setPhotoIndex((photoIndex + 1) % images.length)
+                }
+              />
+            )}
           </Row>
         </Container>
       </section>
