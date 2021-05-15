@@ -95,7 +95,7 @@ function Media() {
 
       <section className="media">
         <Container align="center">
-          <Row style={{ justifyContent: "center" }}>
+          <Row style={{ justifyContent: "center", marginBottom: "30px" }}>
             <Col md={9} className="col-md-offset-2">
               <div className="embed-responsive embed-responsive-16by9">
                 <ReactPlayer
@@ -124,6 +124,7 @@ function Media() {
                       controls
                       muted={true}
                       controls={true}
+                      height="0px"
                     />
                   </div>
                 </Col>
@@ -155,9 +156,13 @@ function Media() {
                       className="img-responsive center-block"
                     />
                     <Card.Body>
-                      <Card.Title>{merch.title}</Card.Title>
-                      <Card.Text>{merch.description}</Card.Text>
-                      <Row>
+                      <Card.Title style={{ minHeight: "47px" }}>
+                        {merch.title}
+                      </Card.Title>
+                      <Card.Text style={{ minHeight: "260px" }}>
+                        {merch.description}
+                      </Card.Text>
+                      <Row style={{ minHeight: "23.64px" }}>
                         <Col md={6}>
                           {merch.itunes !== "blank" ? (
                             <a
@@ -188,7 +193,7 @@ function Media() {
                         </Col>
                       </Row>
 
-                      <Row>
+                      <Row style={{ minHeight: "23.64px" }}>
                         <Col md={6}>
                           {merch.amazon !== "blank" ? (
                             <React.Fragment>
