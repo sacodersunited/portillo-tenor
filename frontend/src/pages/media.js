@@ -1,11 +1,13 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Image from "gatsby-image"
 import BackgroundSection from "../components/backgroundSection"
 import { graphql, useStaticQuery } from "gatsby"
 import { Container, Row, Col } from "react-bootstrap"
 import { FaAmazon, FaApple, FaSpotify, FaGlobe } from "react-icons/fa"
 import ReactPlayer from "react-player"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import "../css/media.css"
 
 const Media = () => {
@@ -15,7 +17,13 @@ const Media = () => {
         desktop: file(relativePath: { eq: "media-header-bg.png" }) {
           childImageSharp {
             fluid(quality: 90, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
+              base64
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
             }
           }
         }
@@ -40,15 +48,8 @@ const Media = () => {
             spotify
             description
             image {
-              childImageSharp {
-                fluid {
-                  base64
-                  originalImg
-                  originalName
-                }
-                fixed {
-                  src
-                }
+              localFile {
+                publicURL
               }
             }
           }
@@ -58,19 +59,9 @@ const Media = () => {
           nodes {
             image {
               name
-              url
-              formats {
-                medium {
-                  childImageSharp {
-                    fixed {
-                      src
-                      base64
-                    }
-                  }
-                }
+              localFile {
+                publicURL
               }
-              mime
-              size
             }
             title
             strapiId
@@ -84,7 +75,9 @@ const Media = () => {
 
   // Set ImageData.
   const imageData = data.desktop.childImageSharp.fluid
-  console.log("data", data.merch.nodes)
+  // const headerImage = getImage(data.blogPost.avatar)
+  const featured = data.photoalbum.nodes.filter(album => album.strapiId === 21)
+  // const featuredImage = getImage(featured[0].image[0])
   return (
     <Layout isFullWidth>
       <SEO title="David Portillo tenor media, videos, pictures, and albums for sale" />
@@ -93,11 +86,7 @@ const Media = () => {
       <section className="media">
         <Container align="center">
           <Row style={{ justifyContent: "center" }}>
-            <Col
-              md={9}
-              className="col-md-offset-2"
-              // style={{ marginBottom: "30px" }}
-            >
+            <Col md={9} className="col-md-offset-2">
               <div className="embed-responsive embed-responsive-16by9">
                 <ReactPlayer
                   url={data.videos.nodes[0].url}
@@ -115,7 +104,7 @@ const Media = () => {
                 return null
               }
               return (
-                <Col md={4} style={{ marginBottom: "30px" }}>
+                <Col md={4} style={{ marginBottom: "30px" }} key={index}>
                   <div
                     className="embed-responsive embed-responsive-16by9"
                     style={{ height: "326px" }}
@@ -133,17 +122,16 @@ const Media = () => {
             })}
           </Row>
           <Row>
-            {/* <Col md={4} style={{ marginBottom: "30px" }}> */}
-
             {data.merch.nodes.map((merch, index) => {
               return (
                 <Col
                   md={4}
                   className="text-left"
                   style={{ marginBottom: "10px" }}
+                  key={index}
                 >
                   <img
-                    src={merch.image.childImageSharp.fluid.originalImg}
+                    src={merch.image.localFile.publicURL}
                     style={{ minHeight: "327px" }}
                     className="img-responsive center-block"
                   />
@@ -199,7 +187,56 @@ const Media = () => {
                 </Col>
               )
             })}
-            {/* </Col> */}
+          </Row>
+          <Row>
+            <Col md={12} style={{ marginBottom: "10px" }}>
+              <img
+                src={featured[0].image[0].localFile.publicURL}
+                alt="photo album cover"
+                style={{ borderRadius: "30px" }}
+              ></img>
+            </Col>
+            {data.photoalbum.nodes.map((album, index) => {
+              console.log("album", album)
+
+              const foundThumb = album.image.filter(image => {
+                if (image.name.indexOf("thumb") > 0) {
+                  return image
+                }
+                return null
+              })
+              console.log("foundThumb", foundThumb)
+
+              if (
+                album.image === null ||
+                album.image === undefined ||
+                album.image.length == 0 ||
+                album.title == "featured"
+              ) {
+                return null
+              } else if (foundThumb.length > 0) {
+                return (
+                  <Col
+                    md={4}
+                    style={{ marginBottom: "10px", marginTop: "10px" }}
+                    key={index}
+                  >
+                    <img
+                      src={foundThumb[0].localFile.publicURL}
+                      alt={album.title}
+                      className="center-block img-responsive img-rounded pic-grid"
+                      style={{ maxHeight: "233px", borderRadius: "30px" }}
+                    />
+                    <h4
+                      className="text-center image-title"
+                      style={{ fontSize: "medium" }}
+                    >
+                      {album.title}
+                    </h4>
+                  </Col>
+                )
+              }
+            })}
           </Row>
         </Container>
       </section>
