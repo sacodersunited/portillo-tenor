@@ -82,7 +82,6 @@ function Media() {
     setIsOpen(!isOpen)
 
     setImages(arrImages)
-    console.log("clicked thumbnail", arrImages)
   }
 
   // Set ImageData.
@@ -118,11 +117,10 @@ function Media() {
                 <Col md={4} style={{ marginBottom: "30px" }} key={index}>
                   <div
                     className="embed-responsive embed-responsive-16by9"
-                    style={{ height: "326px" }}
+                    style={{ maxHeight: "326px" }}
                   >
                     <ReactPlayer
                       url={video.url}
-                      height="326"
                       controls
                       muted={true}
                       controls={true}
@@ -133,6 +131,7 @@ function Media() {
             })}
           </Row>
           <Row>
+            {/* Merch */}
             {data.merch.nodes.map((merch, index) => {
               return (
                 <Col
@@ -228,32 +227,28 @@ function Media() {
             })}
           </Row>
           <Row>
+            {/* Featured Photo */}
             <Col md={12} style={{ marginBottom: "10px" }}>
               <img
                 src={featured[0].image[0].localFile.publicURL}
                 alt="photo album cover"
-                style={{ borderRadius: "30px" }}
+                style={{ borderRadius: "10px", width: "100%" }}
               ></img>
             </Col>
-            {data.photoalbum.nodes.map((album, index) => {
-              // console.log("album", album)
 
+            {data.photoalbum.nodes.map((album, index) => {
               const foundThumb = album.image.filter(
                 image => image.name.indexOf("thumb") > 0
               )
-              // console.log("foundThumb", foundThumb)
-
               const arrImages = album.image.map(img => {
                 return img.localFile.publicURL
               })
-
-              // console.log("arrImages", arrImages)
 
               if (
                 album.image === null ||
                 album.image === undefined ||
                 album.image.length == 0 ||
-                album.title == "featured"
+                album.title === "featured"
               ) {
                 return null
               } else if (foundThumb.length > 0) {
@@ -267,7 +262,10 @@ function Media() {
                       src={foundThumb[0].localFile.publicURL}
                       alt={album.title}
                       className="center-block img-responsive img-rounded pic-grid"
-                      style={{ maxHeight: "233px", borderRadius: "30px" }}
+                      style={{
+                        maxHeight: "233px",
+                        borderRadius: "10px",
+                      }}
                       onClick={e => clickThumbnail(e, arrImages)}
                     />
                     <h4
