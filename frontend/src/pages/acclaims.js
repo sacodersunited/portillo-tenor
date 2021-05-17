@@ -30,7 +30,9 @@ const PressCard = ({ data }) => {
 
 const Acclaims = () => {
   const pressFeatures = UsePressFeature()
-  const acclaims = UseAcclaims()
+  const {
+    allStrapiAcclaim: { group },
+  } = UseAcclaims()
 
   const data = useStaticQuery(
     graphql`
@@ -62,7 +64,11 @@ const Acclaims = () => {
         ))}
         <h2 className="text-center mb-5">Acclaims</h2>
         {/* TODO: Add Acclaims grouped by role */}
-        <pre>{JSON.stringify(acclaims, null, 2)}</pre>
+
+        {group.map(acclaim => (
+          <h1>{acclaim["nodes"].link}</h1>
+        ))}
+        <pre>{JSON.stringify(group, null, 2)}</pre>
       </Container>
     </Layout>
   )
