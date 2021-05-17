@@ -1,0 +1,26 @@
+.player-wrapper {
+  width: auto;
+  height: auto;
+}
+
+.react-player {
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.react-player > div {
+  position: absolute;
+}
+
+a {
+  display: inline-block;
+  /* border: 1px solid black; */
+  padding: 0;
+  /* margin-right: 20px; */
+}
+
+a svg {
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 3px;
+}

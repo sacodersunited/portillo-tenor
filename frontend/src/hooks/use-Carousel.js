@@ -10,10 +10,8 @@ const UseCarousel = () => {
             caption
             active
             image {
-              childImageSharp {
-                fluid(maxWidth: 1440, maxHeight: 600, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
+              localFile {
+                publicURL
               }
             }
           }
@@ -26,7 +24,7 @@ const UseCarousel = () => {
     id: carouselItem.node.strapiId,
     caption: carouselItem.node.caption,
     active: carouselItem.node.active,
-    image: carouselItem.node.image.childImageSharp.fluid,
+    image: carouselItem.node.image.localFile.publicURL,
   }))
 }
 
