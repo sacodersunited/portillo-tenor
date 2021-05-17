@@ -63,12 +63,35 @@ const Acclaims = () => {
           </Row>
         ))}
         <h2 className="text-center mb-5">Acclaims</h2>
-        {/* TODO: Add Acclaims grouped by role */}
+        <div className="section acclaims">
+          <Row>
+            {group.map(role => (
+              // this level for role + thumbnail
 
-        {group.map(acclaim => (
-          <h1>{acclaim["nodes"].link}</h1>
-        ))}
-        <pre>{JSON.stringify(group, null, 2)}</pre>
+              <React.Fragment>
+                <Col md={4}>
+                  <h1>{role.nodes[0]["acclaim_thumbnail"].role}</h1>
+
+                  <Image
+                    fluid={
+                      role.nodes[0]["acclaim_thumbnail"].thumbnail
+                        .childImageSharp.fluid
+                    }
+                    alt="Biography picture"
+                  />
+                </Col>
+                <Col md={8}>
+                  {role.nodes.map(review => (
+                    // this level for reviews
+                    <p>{review.snippet}</p>
+                  ))}
+                </Col>
+              </React.Fragment>
+            ))}
+          </Row>
+
+          {/* <pre>{JSON.stringify(group, null, 2)}</pre> */}
+        </div>
       </Container>
     </Layout>
   )
