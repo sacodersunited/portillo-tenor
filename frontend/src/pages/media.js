@@ -142,11 +142,11 @@ function Media() {
                   key={index}
                 >
                   <Card
-                    border="primary"
                     style={{
                       width: "20rem",
                       minHeight: "690px",
                       marginBottom: "30px",
+                      borderColor: "rgba(0,0,0,.1)!important",
                     }}
                   >
                     <Card.Img
@@ -163,7 +163,7 @@ function Media() {
                         {merch.description}
                       </Card.Text>
                       <Row style={{ minHeight: "23.64px" }}>
-                        <Col md={6}>
+                        <Col>
                           {merch.itunes !== "blank" ? (
                             <a
                               href={merch.itunes}
@@ -177,7 +177,7 @@ function Media() {
                             </a>
                           ) : null}
                         </Col>
-                        <Col md={6}>
+                        <Col>
                           {merch.website !== "blank" ? (
                             <a
                               href={merch.website}
@@ -191,10 +191,8 @@ function Media() {
                             </a>
                           ) : null}
                         </Col>
-                      </Row>
 
-                      <Row style={{ minHeight: "23.64px" }}>
-                        <Col md={6}>
+                        <Col>
                           {merch.amazon !== "blank" ? (
                             <React.Fragment>
                               <a
@@ -210,7 +208,7 @@ function Media() {
                             </React.Fragment>
                           ) : null}
                         </Col>
-                        <Col md={6}>
+                        <Col>
                           {merch.spotify !== "blank" ? (
                             <a
                               href={merch.spotify}
@@ -245,9 +243,14 @@ function Media() {
               const foundThumb = album.image.filter(
                 image => image.name.indexOf("thumb") > 0
               )
-              const arrImages = album.image.map(img => {
-                return img.localFile.publicURL
-              })
+
+              const arrImages = album.image
+                .filter(image => image.name.indexOf("thumb") === -1)
+                .map(img => {
+                  return img.localFile.publicURL
+                })
+
+              console.log("arrImages", arrImages)
 
               if (
                 album.image === null ||
