@@ -16,10 +16,8 @@ const UsePressFeature = () => {
           type
           acclaim_thumbnail {
             thumbnail {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
+              localFile {
+                publicURL
               }
             }
           }
@@ -34,7 +32,7 @@ const UsePressFeature = () => {
     link: acclaim.link,
     date: acclaim.date,
     type: acclaim.type,
-    image: acclaim.acclaim_thumbnail.thumbnail.childImageSharp.fluid,
+    image: acclaim.acclaim_thumbnail.thumbnail.localFile.publicURL,
   }))
 }
 

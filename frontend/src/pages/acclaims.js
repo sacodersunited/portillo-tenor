@@ -13,9 +13,9 @@ import { css } from "@emotion/core"
 const PressCard = ({ data }) => (
   <React.Fragment>
     <Col md={4}>
-      <Image
+      <img
         className="rounded mx-auto d-block"
-        fluid={data.image}
+        src={data.image}
         alt={data.reviewer}
         css={css`
           min-height: 240px;
@@ -85,8 +85,8 @@ const Acclaims = () => {
                 <BackgroundImage
                   className="mx-auto d-block mb-5"
                   fluid={
-                    role.nodes[0]["acclaim_thumbnail"].thumbnail.childImageSharp
-                      .fluid
+                    role.nodes[0]["acclaim_thumbnail"].thumbnail.localFile
+                      .publicURL
                   }
                   alt={role.nodes[0]["acclaim_thumbnail"].role}
                   css={css`

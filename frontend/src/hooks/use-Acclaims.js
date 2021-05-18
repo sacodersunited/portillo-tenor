@@ -18,10 +18,8 @@ const UseAcclaims = () => {
             acclaim_thumbnail {
               role
               thumbnail {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
+                localFile {
+                  publicURL
                 }
               }
             }
