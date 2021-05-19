@@ -2,7 +2,6 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import UseBio from "../hooks/use-bio"
-import Image from "gatsby-image"
 import { Container, Row, Col, Button } from "react-bootstrap"
 import {
   FaFacebookSquare,
@@ -20,8 +19,8 @@ const Biography = () => {
       <Container>
         <Row>
           <Col md={8}>
-            <Image
-              fluid={strapiBiography.bio_pic.childImageSharp.fluid}
+            <img
+              src={strapiBiography.bio_pic.localFile.publicURL}
               alt="Biography picture"
             />
           </Col>

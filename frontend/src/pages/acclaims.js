@@ -6,9 +6,25 @@ import { graphql, useStaticQuery } from "gatsby"
 import { Container, Col, Row, Card } from "react-bootstrap"
 import UsePressFeature from "../hooks/use-PressFeature"
 import UseAcclaims from "../hooks/use-Acclaims"
-import Image from "gatsby-image"
-import BackgroundImage from "gatsby-background-image"
 import { css } from "@emotion/core"
+import styled from "@emotion/styled"
+
+const AcclaimThumbnail = styled.div`
+  background-image: url(${props => props.imgsrc || null});
+  border-radius: 0 !important;
+  min-height: 240px;
+  background-position: center center;
+  background-repeat: none;
+  background-size: cover;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+  min-height: 240px;
+  width: 354px;
+  position: relative;
+`
 
 const PressCard = ({ data }) => (
   <React.Fragment>
@@ -82,26 +98,13 @@ const Acclaims = () => {
             // this level for role + thumbnail
             <Row className="mb-5">
               <Col md={4}>
-                <BackgroundImage
-                  className="mx-auto d-block mb-5"
-                  fluid={
+                <AcclaimThumbnail
+                  imgsrc={
                     role.nodes[0]["acclaim_thumbnail"].thumbnail.localFile
                       .publicURL
                   }
+                  className="mx-auto d-block mb-5"
                   alt={role.nodes[0]["acclaim_thumbnail"].role}
-                  css={css`
-                    background-position: center center;
-                    background-repeat: none;
-                    background-size: cover;
-                    color: whitesmoke;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    margin-bottom: 24px;
-                    min-height: 240px;
-                    width: 354px;
-                    position: relative;
-                  `}
                 >
                   <div
                     className="role-bg"
@@ -117,7 +120,7 @@ const Acclaims = () => {
                       {role.nodes[0]["acclaim_thumbnail"].role}
                     </h4>
                   </div>
-                </BackgroundImage>
+                </AcclaimThumbnail>
               </Col>
               <Col md={{ span: 6, offset: 1 }}>
                 {role.nodes.map(review => (
