@@ -10,11 +10,7 @@ const HomeCarousel = () => {
       <Carousel indicators={false} controls={false}>
         {carouselPhotos.map(photo => (
           <Carousel.Item key={photo.id}>
-            <Img
-              className="d-block w-100"
-              fluid={photo.image}
-              alt={photo.name}
-            />
+            <img className="d-block w-100" src={photo.image} alt={photo.name} />
             {photo.caption && (
               <Carousel.Caption>
                 <p>{photo.caption}</p>
