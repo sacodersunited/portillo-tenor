@@ -84,7 +84,21 @@ const Acclaims = () => {
       <SEO title="David Portillo tenor acclaims awards recognition" />
       <BackgroundSection title="Acclaims" fluid={imageData} />
       <Container>
-        <h2 className="text-center mb-5">Press Features</h2>
+        <h2
+          className="text-center text-uppercase h1"
+          css={css`
+            color: #2c3e50;
+            font-family: "Merriweather", serif;
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 60px;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 48px;
+          `}
+        >
+          Press Features
+        </h2>
         {pressFeatures.map(pressFeature => (
           <article className="mb-5">
             <Row key={pressFeature.id}>
@@ -92,7 +106,21 @@ const Acclaims = () => {
             </Row>
           </article>
         ))}
-        <h2 className="text-center mb-5">Acclaims</h2>
+        <h2
+          className="text-center text-uppercase h1"
+          css={css`
+            color: #2c3e50;
+            font-family: "Merriweather", serif;
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 60px;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 48px;
+          `}
+        >
+          Acclaims
+        </h2>
         <div className="section acclaims">
           {group.map(role => (
             // this level for role + thumbnail

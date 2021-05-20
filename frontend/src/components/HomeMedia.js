@@ -3,11 +3,26 @@ import { Container } from "react-bootstrap"
 import { Row, Col, ResponsiveEmbed } from "react-bootstrap"
 import { Link } from "gatsby"
 import { FaChevronRight } from "react-icons/fa"
+import { css } from "@emotion/core"
 
 export default function HomeMedia() {
   return (
     <Container>
-      <h2 className="text-center text-uppercase h1">Media</h2>
+      <h2
+        className="text-center text-uppercase h1"
+        css={css`
+          color: #2c3e50;
+          font-family: "Merriweather", serif;
+          font-size: 36px;
+          font-weight: 400;
+          line-height: 60px;
+          text-transform: uppercase;
+          margin-top: 0;
+          margin-bottom: 48px;
+        `}
+      >
+        Media
+      </h2>
       <Row>
         <Col md={{ span: 9, offset: 2 }}>
           <ResponsiveEmbed aspectRatio="16by9">
