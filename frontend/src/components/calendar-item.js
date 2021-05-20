@@ -1,21 +1,62 @@
 import React from "react"
 import { Row, Col, Button } from "react-bootstrap"
 import Moment from "react-moment"
+import { css } from "@emotion/core"
 
 const CalendarItem = ({ event, isCalendarPage }) => {
   const today = new Date()
   console.log("calender item", event)
   return (
-    <Row key={event.id}>
-      <Col>
-        <p>
+    <Row className="mb-4" key={event.id}>
+      <Col md={{ span: 2, offset: 2 }}>
+        <h4
+          className="text-center"
+          css={css`
+            color: #2c3e50;
+            font-family: "Open Sans", sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 0;
+          `}
+        >
           <Moment format="MMM DD">{event.startDate}</Moment>
-        </p>
-        <hr />
-        <p>{event.city}</p>
+        </h4>
+        <hr
+          className="mt-0 mb-1"
+          css={css`
+            width: 39px;
+            background-color: #e58e1a;
+            border: 1px solid #e58e1a;
+          `}
+        />
+        <h5
+          className="text-center"
+          css={css`
+            color: #2c3e50;
+            font-family: "Open Sans", sans-serif;
+            font-size: 19px;
+            font-weight: 700;
+          `}
+        >
+          {event.city}
+        </h5>
       </Col>
-      <Col>
-        <p>{event.title}</p>
+      <Col md={4}>
+        <h4
+          css={css`
+            color: #2c3e50;
+            font-family: "Open Sans", sans-serif;
+            font-size: 32px;
+            font-weight: 600;
+            font-style: italic;
+            text-transform: uppercase;
+            margin-top: 0;
+          `}
+          className="text-center"
+        >
+          {event.title}
+        </h4>
         {isCalendarPage && <p>as {event.role}</p>}
       </Col>
       <Col>
