@@ -1,7 +1,7 @@
 import React from "react"
 import { Carousel } from "react-bootstrap"
 import UseCarousel from "../hooks/use-Carousel"
-import Img from "gatsby-image"
+import { css } from "@emotion/core"
 
 const HomeCarousel = () => {
   const carouselPhotos = UseCarousel()
@@ -13,7 +13,14 @@ const HomeCarousel = () => {
             <img className="d-block w-100" src={photo.image} alt={photo.name} />
             {photo.caption && (
               <Carousel.Caption>
-                <p className="display-4">{photo.caption}</p>
+                <p
+                  className="display-4"
+                  css={css`
+                    font-family: "Pacifico";
+                  `}
+                >
+                  {photo.caption}
+                </p>
               </Carousel.Caption>
             )}
           </Carousel.Item>

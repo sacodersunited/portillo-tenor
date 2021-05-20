@@ -1,5 +1,5 @@
 import React from "react"
-import { Row, Col, Button } from "react-bootstrap"
+import { Row, Col } from "react-bootstrap"
 import Moment from "react-moment"
 import { css } from "@emotion/core"
 
@@ -59,10 +59,15 @@ const CalendarItem = ({ event, isCalendarPage }) => {
         </h4>
         {isCalendarPage && <p>as {event.role}</p>}
       </Col>
-      <Col>
+      <Col md={{ span: 2, offset: 1 }}>
         {today < new Date(event.endDate) && (
-          <a href={event.link} target="_blank" rel="noreferrer">
-            <Button variant="outline-primary">Tickets</Button>
+          <a
+            className="btn btn-outline-primary btn-lg btn-block"
+            href={event.link}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Tickets
           </a>
         )}
       </Col>
