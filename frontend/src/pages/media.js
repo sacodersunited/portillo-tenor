@@ -13,6 +13,8 @@ import "../css/media.css"
 function Media() {
   const [isOpen, setIsOpen] = useState(false)
   const [images, setImages] = useState([])
+  const [imagesCaptions, setImagesCaptions] = useState([])
+
   const [photoIndex, setPhotoIndex] = useState(0)
 
   const data = useStaticQuery(
@@ -63,6 +65,7 @@ function Media() {
           nodes {
             image {
               name
+              caption
               localFile {
                 publicURL
               }
@@ -77,11 +80,12 @@ function Media() {
     `
   )
 
-  function clickThumbnail(e, arrImages) {
+  function clickThumbnail(e, arrImages, arrImagesCaptions) {
     e.preventDefault()
     setIsOpen(!isOpen)
 
     setImages(arrImages)
+    setImagesCaptions(arrImagesCaptions)
   }
 
   // Set ImageData.
@@ -244,13 +248,20 @@ function Media() {
                 image => image.name.indexOf("thumb") > 0
               )
 
+              const arrImagesCaptions = album.image
+                .filter(image => image.name.indexOf("thumb") === -1)
+                .map(img => {
+                  return img.caption
+                })
+              // console.log("image caps", arrImagesCaptions)
+
               const arrImages = album.image
                 .filter(image => image.name.indexOf("thumb") === -1)
                 .map(img => {
                   return img.localFile.publicURL
                 })
 
-              console.log("arrImages", arrImages)
+              // console.log("arrImages", arrImages)
 
               if (
                 album.image === null ||
@@ -274,7 +285,9 @@ function Media() {
                         maxHeight: "233px",
                         borderRadius: "10px",
                       }}
-                      onClick={e => clickThumbnail(e, arrImages)}
+                      onClick={e =>
+                        clickThumbnail(e, arrImages, arrImagesCaptions)
+                      }
                     />
                     <h4
                       className="text-center image-title"
@@ -303,6 +316,7 @@ function Media() {
                 onMoveNextRequest={() =>
                   setPhotoIndex((photoIndex + 1) % images.length)
                 }
+                imageCaption={imagesCaptions[photoIndex]}
               />
             )}
           </Row>
