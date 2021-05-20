@@ -6,6 +6,7 @@ import CalendarItem from "../components/calendar-item"
 import BackgroundSection from "../components/backgroundSection"
 import { Container } from "react-bootstrap"
 import { graphql, useStaticQuery } from "gatsby"
+import { css } from "@emotion/core"
 
 const Calendar = () => {
   const calendarEvents = UseAllCalendar()
@@ -49,11 +50,39 @@ const Calendar = () => {
       <SEO title="David Portillo tenor calendar of events, shows, productions" />
       <BackgroundSection title="Calendar" fluid={imageData} />
       <Container>
-        <h1>Upcoming Schedule</h1>
+        <h2
+          className="text-center text-uppercase h1"
+          css={css`
+            color: #2c3e50;
+            font-family: "Merriweather", serif;
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 60px;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 48px;
+          `}
+        >
+          Upcoming Schedule
+        </h2>
         {futureEvents.map(event => (
           <CalendarItem event={event} isCalendarPage />
         ))}
-        <h1>Past Performances</h1>
+        <h2
+          className="text-center text-uppercase h1"
+          css={css`
+            color: #2c3e50;
+            font-family: "Merriweather", serif;
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 60px;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 48px;
+          `}
+        >
+          Past Performances
+        </h2>
         {uniqueYears.length > 0 ? (
           <div class="col-md-12">
             <h2 class="text-center calendar-page-h2-year">{uniqueYears[0]}</h2>

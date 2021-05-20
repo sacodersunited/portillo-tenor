@@ -5,7 +5,7 @@ import { FaTwitterSquare, FaFacebookSquare, FaInstagram } from "react-icons/fa"
 import { css } from "@emotion/core"
 
 const Footer = () => (
-  <>
+  <React.Fragment>
     <div
       css={css`
         background-image: url(https://res.cloudinary.com/davidportillo-tenor/image/upload/v1583174212/homepage/subfooter-bg2_iweejs.png);
@@ -15,8 +15,25 @@ const Footer = () => (
       `}
     >
       <Container className="text-center text-white p-1">
-        <h2>Music is the universal language of mankind</h2>
-        <h4>- Henry Wadsworth Longfellow</h4>
+        <h2
+          css={css`
+            font-size: 36px;
+            font-weight: 300;
+            font-style: italic;
+            font-family: "Merriweather", serif;
+          `}
+        >
+          Music is the universal language of mankind
+        </h2>
+        <h4
+          css={css`
+            font-family: "Open Sans", sans-serif;
+            font-size: 32px;
+            font-weight: 300;
+          `}
+        >
+          - Henry Wadsworth Longfellow
+        </h4>
       </Container>
     </div>
     <Navbar
@@ -163,6 +180,6 @@ const Footer = () => (
         ©sacodersunited
       </a>
     </Navbar>
-  </>
+  </React.Fragment>
 )
 export default Footer

@@ -14,10 +14,10 @@ const CalendarItem = ({ event, isCalendarPage }) => {
           css={css`
             color: #2c3e50;
             font-family: "Open Sans", sans-serif;
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 700;
             text-transform: uppercase;
-            margin-top: 0;
+            margin-top: 5px;
           `}
         >
           <Moment format="MMM DD">{event.startDate}</Moment>
@@ -42,7 +42,7 @@ const CalendarItem = ({ event, isCalendarPage }) => {
           {event.city}
         </h5>
       </Col>
-      <Col md={4}>
+      <Col className="text-center" md={4}>
         <h4
           css={css`
             color: #2c3e50;
@@ -57,7 +57,18 @@ const CalendarItem = ({ event, isCalendarPage }) => {
         >
           {event.title}
         </h4>
-        {isCalendarPage && <p>as {event.role}</p>}
+        {isCalendarPage && (
+          <p
+            css={css`
+              color: #2c3e50;
+              font-family: "Merriweather", serif;
+              font-size: 18px;
+              font-weight: 200;
+            `}
+          >
+            as {event.role}
+          </p>
+        )}
       </Col>
       <Col md={{ span: 2, offset: 1 }}>
         {today < new Date(event.endDate) && (
