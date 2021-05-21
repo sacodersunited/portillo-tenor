@@ -8,6 +8,7 @@ import HomeMedia from "../components/HomeMedia"
 
 const IndexPage = () => (
   <Layout isFullWidth>
+    <h1>I AM HERE</h1>
     <SEO title="David Portillo Tenor home" />
     <HomeCarousel />
     <HomeCalendar />
