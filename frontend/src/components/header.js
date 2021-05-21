@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import { Navbar, Nav, Container } from "react-bootstrap"
 import Logo from "../images/logo.svg"
-import { css } from "@emotion/core"
+import { css, cx } from "@emotion/react"
 
 const Header = ({ siteTitle }) => (
   <Navbar

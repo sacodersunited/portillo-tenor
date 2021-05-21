@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from "@emotion/core"
+import { css, cx } from "@emotion/react"
 import BackgroundImage from "gatsby-background-image"
 
 const BackgroundSection = ({ className, fluid, title }) => {

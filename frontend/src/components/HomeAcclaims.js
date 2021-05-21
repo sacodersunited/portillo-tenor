@@ -3,7 +3,7 @@ import { Container, Carousel } from "react-bootstrap"
 import { FaChevronRight } from "react-icons/fa"
 import { Link } from "gatsby"
 import UseFeaturedAcclaims from "../hooks/use-FeaturedAcclaims"
-import { css } from "@emotion/core"
+import { css, cx } from "@emotion/react"
 
 export default function HomeAcclaims() {
   const acclaims = UseFeaturedAcclaims()

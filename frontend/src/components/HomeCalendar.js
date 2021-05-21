@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import { FaChevronRight } from "react-icons/fa"
 import UseCalendar from "../hooks/use-AllCalendar"
 import CalendarItem from "../components/calendar-item"
-import { css } from "@emotion/core"
+import { css, cx } from "@emotion/react"
 
 const HomeCalendar = () => {
   const today = new Date()

@@ -1,7 +1,7 @@
 import React from "react"
 import { Carousel } from "react-bootstrap"
 import UseCarousel from "../hooks/use-Carousel"
-import { css } from "@emotion/core"
+import { css, cx } from "@emotion/react"
 
 const HomeCarousel = () => {
   const carouselPhotos = UseCarousel()

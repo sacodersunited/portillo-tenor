@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { Navbar, Container, Col, Row } from "react-bootstrap"
 import { FaTwitterSquare, FaFacebookSquare, FaInstagram } from "react-icons/fa"
-import { css } from "@emotion/core"
+import { css, cx } from "@emotion/react"
 
 const Footer = () => (
   <React.Fragment>

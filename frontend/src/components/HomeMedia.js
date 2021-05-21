@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap"
 import { Row, Col, ResponsiveEmbed } from "react-bootstrap"
 import { Link } from "gatsby"
 import { FaChevronRight } from "react-icons/fa"
-import { css } from "@emotion/core"
+import { css, cx } from "@emotion/react"
 
 export default function HomeMedia() {
   return (

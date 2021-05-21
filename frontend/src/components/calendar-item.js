@@ -1,7 +1,7 @@
 import React from "react"
 import { Row, Col } from "react-bootstrap"
 import Moment from "react-moment"
-import { css } from "@emotion/core"
+import { css, cx } from "@emotion/react"
 
 const CalendarItem = ({ event, isCalendarPage }) => {
   const today = new Date()
