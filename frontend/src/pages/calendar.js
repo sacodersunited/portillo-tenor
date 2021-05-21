@@ -6,7 +6,7 @@ import CalendarItem from "../components/calendar-item"
 import BackgroundSection from "../components/backgroundSection"
 import { Container } from "react-bootstrap"
 import { graphql, useStaticQuery } from "gatsby"
-import { css } from "@emotion/core"
+import { css, cx } from "@emotion/react"
 
 const Calendar = () => {
   const calendarEvents = UseAllCalendar()

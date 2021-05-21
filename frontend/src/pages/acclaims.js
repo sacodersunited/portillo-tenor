@@ -6,7 +6,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { Container, Col, Row, Card } from "react-bootstrap"
 import UsePressFeature from "../hooks/use-PressFeature"
 import UseAcclaims from "../hooks/use-Acclaims"
-import { css } from "@emotion/core"
+import { css, cx } from "@emotion/react"
 import styled from "@emotion/styled"
 
 const AcclaimThumbnail = styled.div`

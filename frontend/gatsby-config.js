@@ -30,12 +30,22 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-plugin-emotion`,
+      options: {
+        // Accepts the following options, all of which are defined by `@emotion/babel-plugin` plugin.
+        // The values for each key in this example are the defaults the plugin uses.
+        sourceMap: true,
+        autoLabel: "dev-only",
+        labelFormat: `[local]`,
+        cssPropOptimization: true,
+      },
+    },
     {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: process.env.API_URL || "http://13.65.120.79:1337",
-        contentTypes: [
+        collectionTypes: [
           // List of the Content Types you want to be able to request from Gatsby.
           "event",
           "acclaim",
