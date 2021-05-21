@@ -8,13 +8,19 @@ const UseBio = () => {
         facebook
         instagram
         bio_pdf {
-          localFile {
+          localFile{
             publicURL
           }
         }
         bio_pic {
           localFile {
-            publicURL
+            childImageSharp {
+              gatsbyImageData(
+                width: 700
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
           }
         }
         description
