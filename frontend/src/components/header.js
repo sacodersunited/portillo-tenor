@@ -3,16 +3,24 @@ import PropTypes from "prop-types"
 import React from "react"
 import { Navbar, Nav, Container } from "react-bootstrap"
 import Logo from "../images/logo.svg"
+import { css } from "@emotion/core"
 
 const Header = ({ siteTitle }) => (
-  <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+  <Navbar
+    bg="dark"
+    variant="dark"
+    expand="lg"
+    sticky="top"
+    css={css`
+      min-height: 90px;
+    `}
+  >
     <Container>
       <Link to="/">
         <Navbar.Brand>
           <img
             src={Logo}
             width="340"
-            height="30"
             className="d-inline-block align-top"
             alt="React Bootstrap logo"
           />

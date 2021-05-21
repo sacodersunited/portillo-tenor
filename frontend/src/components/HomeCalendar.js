@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import { FaChevronRight } from "react-icons/fa"
 import UseCalendar from "../hooks/use-AllCalendar"
 import CalendarItem from "../components/calendar-item"
+import { css } from "@emotion/core"
 
 const HomeCalendar = () => {
   const today = new Date()
@@ -16,10 +17,26 @@ const HomeCalendar = () => {
 
   return (
     <Container className="mt-5 mb-5">
-      <h2 className="text-center text-uppercase h1">Upcoming Performances</h2>
-      {publishedEvents.map(event => (
-        <CalendarItem event={event} />
-      ))}
+      <h2
+        className="text-center text-uppercase h1"
+        css={css`
+          color: #2c3e50;
+          font-family: "Merriweather", serif;
+          font-size: 36px;
+          font-weight: 400;
+          line-height: 60px;
+          text-transform: uppercase;
+          margin-top: 0;
+          margin-bottom: 48px;
+        `}
+      >
+        Upcoming Performances
+      </h2>
+      {publishedEvents ? (
+        publishedEvents.map(event => <CalendarItem event={event} />)
+      ) : (
+        <p className="text-muted">No Events. Please check back soon.</p>
+      )}
       <Link className="text-center d-block h4" to="/calendar">
         View Calendar
         <FaChevronRight />

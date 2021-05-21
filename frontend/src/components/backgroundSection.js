@@ -22,7 +22,14 @@ const BackgroundSection = ({ className, fluid, title }) => {
         margin-bottom: 48px;
       `}
     >
-      <h2>{title.toUpperCase()}</h2>
+      <h2
+        className="display-4"
+        css={css`
+          font-family: "Pacifico";
+        `}
+      >
+        {title}
+      </h2>
     </BackgroundImage>
   )
 }
