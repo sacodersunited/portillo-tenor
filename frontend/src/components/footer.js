@@ -3,17 +3,25 @@ import { Link } from "gatsby"
 import { Navbar, Container, Col, Row } from "react-bootstrap"
 import { FaTwitterSquare, FaFacebookSquare, FaInstagram } from "react-icons/fa"
 import { css } from "@emotion/core"
+import footerImg from "../images/subfooter-bg2.png"
+import styled from "@emotion/styled"
+
+const StyledBG = styled.div`
+  background-image: url(${props => props.imgsrc || null});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 500px;
+  text-align: center;
+  color: white;
+  padding-top: 220px;
+  margin-top: 96px;
+`
 
 const Footer = () => (
   <React.Fragment>
-    <div
-      css={css`
-        background-image: url(https://res.cloudinary.com/davidportillo-tenor/image/upload/v1583174212/homepage/subfooter-bg2_iweejs.png);
-        min-height: 500px;
-        padding-top: 220px;
-        margin-top: 96px;
-      `}
-    >
+    <StyledBG imgsrc={footerImg}>
       <Container className="text-center text-white p-1">
         <h2
           css={css`
@@ -35,7 +43,7 @@ const Footer = () => (
           - Henry Wadsworth Longfellow
         </h4>
       </Container>
-    </div>
+    </StyledBG>
     <Navbar
       bg="dark"
       variant="dark"
@@ -110,31 +118,6 @@ const Footer = () => (
               </a>
               <br />
               <a href="tel:+1 212 994 3518 ">Tel: +1 212 994 3518 </a>
-            </address>
-
-            <address className="site-footer-address site-footer-p">
-              <a href="http://www.harrisonparrott.com/artist/profile/david-portillo">
-                Harrison Parrott, London
-              </a>
-              <br /> The Ark, 201 Talgarth Road
-              <br /> London, UK W6 8BJ
-              <br />
-              <a href="tel:++44 (0) 20 7229 9166">Tel: +44 (0) 20 7229 9166</a>
-              <br />
-              <br /> Contact
-              <br />
-              <a href="mailto:ian.stones@harrisonparrott.co.uk">
-                Ian Stones, General Management
-              </a>
-              <br />
-              <a href="tel:+44 (0)20 3725 9104">Tel: +44 (0) 20 3725 9104</a>
-              <br />
-              <br />
-              <a href="mailto:alice.jones@harrisonparrott.co.uk">
-                Alice Jones, Associate
-              </a>
-              <br />
-              <a href="tel:+44 (0)20 3725 9181">Tel: +44 (0) 20 3725 9181</a>
             </address>
           </Col>
           <Col>
