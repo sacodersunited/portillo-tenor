@@ -1,7 +1,7 @@
 name: Scheduled build
 on:
   schedule:
-  - cron: '30 16 * * SAT'
+  - cron: '*/10 * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
