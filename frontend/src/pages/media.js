@@ -7,6 +7,7 @@ import { Container, Row, Col, Card } from "react-bootstrap"
 import { FaAmazon, FaApple, FaSpotify, FaGlobe } from "react-icons/fa"
 import ReactPlayer from "react-player"
 import Lightbox from "react-image-lightbox"
+import { GatsbyImage } from "gatsby-plugin-image"
 import "react-image-lightbox/style.css" // This only needs to be imported once in your app
 import "../css/media.css"
 
@@ -55,7 +56,13 @@ function Media() {
             description
             image {
               localFile {
-                publicURL
+                childImageSharp {
+                  gatsbyImageData(
+                    width: 318
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP, AVIF]
+                  )
+                }
               }
             }
           }
@@ -67,6 +74,12 @@ function Media() {
               name
               caption
               localFile {
+                childImageSharp {
+                  gatsbyImageData(
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP, AVIF]
+                  )
+                }
                 publicURL
               }
             }
@@ -153,9 +166,11 @@ function Media() {
                       borderColor: "rgba(0,0,0,.1)!important",
                     }}
                   >
-                    <Card.Img
-                      variant="top"
-                      src={merch.image.localFile.publicURL}
+                    <GatsbyImage
+                      image={
+                        merch.image.localFile.childImageSharp.gatsbyImageData
+                      }
+                      alt="Biography picture"
                       style={{ minHeight: "327px" }}
                       className="img-responsive center-block"
                     />
@@ -236,11 +251,13 @@ function Media() {
           <Row>
             {/* Featured Photo */}
             <Col md={12} style={{ marginBottom: "10px" }}>
-              <img
-                src={featured[0].image[0].localFile.publicURL}
-                alt="photo album cover"
+              <GatsbyImage
+                image={
+                  featured[0].image[0].localFile.childImageSharp.gatsbyImageData
+                }
                 style={{ borderRadius: "10px", width: "100%" }}
-              ></img>
+                alt="Featured Photo album image"
+              />
             </Col>
 
             {data.photoalbum.nodes.map((album, index) => {
@@ -260,7 +277,6 @@ function Media() {
                 .map(img => {
                   return img.localFile.publicURL
                 })
-
               // console.log("arrImages", arrImages)
 
               if (
@@ -277,10 +293,12 @@ function Media() {
                     style={{ marginBottom: "10px", marginTop: "10px" }}
                     key={index}
                   >
-                    <img
-                      src={foundThumb[0].localFile.publicURL}
-                      alt={album.title}
+                    <GatsbyImage
+                      image={
+                        foundThumb[0].localFile.childImageSharp.gatsbyImageData
+                      }
                       className="center-block img-responsive img-rounded pic-grid"
+                      alt={album.title}
                       style={{
                         maxHeight: "233px",
                         borderRadius: "10px",

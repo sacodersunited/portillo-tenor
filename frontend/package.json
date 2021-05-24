@@ -34,7 +34,8 @@
     "react-image-lightbox": "^5.1.1",
     "react-markdown": "^6.0.2",
     "react-moment": "^0.9.7",
-    "react-player": "^2.9.0"
+    "react-player": "^2.9.0",
+    "sharp": "^0.28.3"
   },
   "devDependencies": {
     "eslint-config-react-app": "^5.2.1",
