@@ -3,7 +3,10 @@ import { graphql, useStaticQuery } from "gatsby"
 const UseAllCalendar = () => {
   const data = useStaticQuery(graphql`
     query AllEvents {
-      allStrapiEvent(sort: { order: DESC, fields: start_date }) {
+      allStrapiEvent(
+        sort: { order: DESC, fields: start_date }
+        filter: { published: { eq: true } }
+      ) {
         edges {
           node {
             strapiId
