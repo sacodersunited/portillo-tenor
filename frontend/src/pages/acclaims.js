@@ -2,12 +2,13 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BackgroundSection from "../components/backgroundSection"
-import { graphql, useStaticQuery } from "gatsby"
 import { Container, Col, Row, Card } from "react-bootstrap"
 import UsePressFeature from "../hooks/use-PressFeature"
 import UseAcclaims from "../hooks/use-Acclaims"
-import { css, cx } from "@emotion/react"
+import { css } from "@emotion/react"
 import styled from "@emotion/styled"
+import UseBanner from "../hooks/use-Banner"
+import { getImage } from "gatsby-plugin-image"
 
 const AcclaimThumbnail = styled.div`
   background-image: url(${props => props.imgsrc || null});
@@ -57,32 +58,23 @@ const PressCard = ({ data }) => (
 )
 
 const Acclaims = () => {
+  const banner = UseBanner()
   const pressFeatures = UsePressFeature()
   const {
     allStrapiAcclaim: { group },
   } = UseAcclaims()
 
-  const data = useStaticQuery(
-    graphql`
-      query {
-        desktop: file(relativePath: { eq: "acclaim-header-bg.png" }) {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-      }
-    `
-  )
-
-  // Set ImageData.
-  const imageData = data.desktop.childImageSharp.fluid
+  const acclaimData = banner.filter(acclaim => acclaim.page === "acclaims")
+  const image = getImage(acclaimData[0].image)
 
   return (
     <Layout isFullWidth>
       <SEO title="David Portillo tenor acclaims awards recognition" />
-      <BackgroundSection title="Acclaims" fluid={imageData} />
+      <BackgroundSection
+        image={image}
+        Tag="section"
+        title={acclaimData[0].title}
+      />
       <Container>
         <h2
           className="text-center text-uppercase h1"

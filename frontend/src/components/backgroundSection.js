@@ -1,13 +1,13 @@
 import React from "react"
-import { css, cx } from "@emotion/react"
-import BackgroundImage from "gatsby-background-image"
+import { css } from "@emotion/react"
+import { BgImage } from "gbimage-bridge"
 
-const BackgroundSection = ({ className, fluid, title }) => {
+const BackgroundSection = ({ className, title, image }) => {
   return (
-    <BackgroundImage
+    <BgImage
+      image={image}
       Tag="section"
       className={className}
-      fluid={fluid}
       backgroundColor={`#040e18`}
       css={css`
         width: 100%;
@@ -21,6 +21,7 @@ const BackgroundSection = ({ className, fluid, title }) => {
         align-items: center;
         margin-bottom: 48px;
       `}
+      preserveStackingContext
     >
       <h2
         className="display-4"
@@ -30,7 +31,7 @@ const BackgroundSection = ({ className, fluid, title }) => {
       >
         {title}
       </h2>
-    </BackgroundImage>
+    </BgImage>
   )
 }
 

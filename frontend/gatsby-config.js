@@ -53,6 +53,7 @@ module.exports = {
           "video",
           "merch",
           "photo-album",
+          "banner",
         ],
         //If using single types place them in this array.
         singleTypes: [`biography`],

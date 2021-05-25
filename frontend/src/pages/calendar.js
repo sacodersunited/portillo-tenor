@@ -6,9 +6,15 @@ import CalendarItem from "../components/calendar-item"
 import BackgroundSection from "../components/backgroundSection"
 import { Container } from "react-bootstrap"
 import { graphql, useStaticQuery } from "gatsby"
-import { css, cx } from "@emotion/react"
+import { css } from "@emotion/react"
+import UseBanner from "../hooks/use-Banner"
+import { getImage } from "gatsby-plugin-image"
 
 const Calendar = () => {
+  const banner = UseBanner()
+  const acclaimData = banner.filter(acclaim => acclaim.page === "calendar")
+  const image = getImage(acclaimData[0].image)
+
   const calendarEvents = UseAllCalendar()
   const today = new Date()
 
@@ -48,7 +54,11 @@ const Calendar = () => {
   return (
     <Layout isFullWidth>
       <SEO title="David Portillo tenor calendar of events, shows, productions" />
-      <BackgroundSection title="Calendar" fluid={imageData} />
+      <BackgroundSection
+        image={image}
+        Tag="section"
+        title={acclaimData[0].title}
+      />
       <Container>
         <h2
           className="text-center text-uppercase h1"

@@ -8,6 +8,8 @@ import { FaAmazon, FaApple, FaSpotify, FaGlobe } from "react-icons/fa"
 import ReactPlayer from "react-player"
 import Lightbox from "react-image-lightbox"
 import { GatsbyImage } from "gatsby-plugin-image"
+import UseBanner from "../hooks/use-Banner"
+import { getImage } from "gatsby-plugin-image"
 import "react-image-lightbox/style.css" // This only needs to be imported once in your app
 import "../css/media.css"
 
@@ -15,8 +17,10 @@ function Media() {
   const [isOpen, setIsOpen] = useState(false)
   const [images, setImages] = useState([])
   const [imagesCaptions, setImagesCaptions] = useState([])
-
   const [photoIndex, setPhotoIndex] = useState(0)
+  const banner = UseBanner()
+  const acclaimData = banner.filter(acclaim => acclaim.page === "media")
+  const image = getImage(acclaimData[0].image)
 
   const data = useStaticQuery(
     graphql`
@@ -38,7 +42,6 @@ function Media() {
         videos: allStrapiVideo {
           nodes {
             id
-            active
             title
             url
           }
@@ -108,7 +111,11 @@ function Media() {
   return (
     <Layout isFullWidth>
       <SEO title="David Portillo tenor media, videos, pictures, and albums for sale" />
-      <BackgroundSection title="Media" fluid={imageData} />
+      <BackgroundSection
+        image={image}
+        Tag="section"
+        title={acclaimData[0].title}
+      />
 
       <section className="media">
         <Container align="center">
