@@ -115,33 +115,6 @@ const Footer = () => {
                 <br />
                 <a href="tel:+1 212 994 3518 ">Tel: +1 212 994 3518 </a>
               </address>
-
-              <address className="site-footer-address site-footer-p">
-                <a href="http://www.harrisonparrott.com/artist/profile/david-portillo">
-                  Harrison Parrott, London
-                </a>
-                <br /> The Ark, 201 Talgarth Road
-                <br /> London, UK W6 8BJ
-                <br />
-                <a href="tel:++44 (0) 20 7229 9166">
-                  Tel: +44 (0) 20 7229 9166
-                </a>
-                <br />
-                <br /> Contact
-                <br />
-                <a href="mailto:ian.stones@harrisonparrott.co.uk">
-                  Ian Stones, General Management
-                </a>
-                <br />
-                <a href="tel:+44 (0)20 3725 9104">Tel: +44 (0) 20 3725 9104</a>
-                <br />
-                <br />
-                <a href="mailto:alice.jones@harrisonparrott.co.uk">
-                  Alice Jones, Associate
-                </a>
-                <br />
-                <a href="tel:+44 (0)20 3725 9181">Tel: +44 (0) 20 3725 9181</a>
-              </address>
             </Col>
             <Col>
               <h4>Connect</h4>
@@ -189,4 +162,5 @@ const Footer = () => {
     </React.Fragment>
   )
 }
+
 export default Footer
