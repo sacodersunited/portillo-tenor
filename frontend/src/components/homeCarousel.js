@@ -17,6 +17,9 @@ const HomeCarousel = () => {
                   className="display-4"
                   css={css`
                     font-family: "Pacifico";
+                    @media only screen and (max-width: 740px) {
+                      font-size: 22px;
+                    }
                   `}
                 >
                   {photo.caption}

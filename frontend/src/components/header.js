@@ -28,6 +28,11 @@ const Header = ({ siteTitle }) => {
               width="340"
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
+              css={css`
+                @media only screen and (min-width: 320px) {
+                  width: 220px;
+                }
+              `}
             />
           </Navbar.Brand>
         </Link>

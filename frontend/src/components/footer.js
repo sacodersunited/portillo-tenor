@@ -5,7 +5,6 @@ import { FaTwitterSquare, FaFacebookSquare, FaInstagram } from "react-icons/fa"
 import { css } from "@emotion/react"
 import UseSocial from "../hooks/use-Social"
 import styled from "@emotion/styled"
-import { StaticImage } from "gatsby-plugin-image"
 import FooterImg from "../images/subfooter-bg2.png"
 
 const FooterBG = styled.div`
@@ -16,6 +15,14 @@ const FooterBG = styled.div`
   min-height: 500px;
   padding-top: 220px;
   margin-top: 96px;
+  @media only screen and (max-width: 740px) {
+    min-height: 300px;
+    background-position: 65% 75%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+  }
 `
 
 const Footer = () => {
@@ -31,6 +38,9 @@ const Footer = () => {
               font-weight: 300;
               font-style: italic;
               font-family: "Merriweather", serif;
+              @media only screen and (max-width: 740px) {
+                font-size: 24px;
+              }
             `}
           >
             Music is the universal language of mankind
@@ -40,6 +50,9 @@ const Footer = () => {
               font-family: "Open Sans", sans-serif;
               font-size: 32px;
               font-weight: 300;
+              @media only screen and (max-width: 740px) {
+                font-size: 18px;
+              }
             `}
           >
             - Henry Wadsworth Longfellow
