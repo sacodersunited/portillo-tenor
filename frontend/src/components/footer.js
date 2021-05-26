@@ -4,20 +4,26 @@ import { Navbar, Container, Col, Row } from "react-bootstrap"
 import { FaTwitterSquare, FaFacebookSquare, FaInstagram } from "react-icons/fa"
 import { css } from "@emotion/react"
 import UseSocial from "../hooks/use-Social"
+import styled from "@emotion/styled"
+import { StaticImage } from "gatsby-plugin-image"
+import FooterImg from "../images/subfooter-bg2.png"
+
+const FooterBG = styled.div`
+  background-image: url(${props => props.imgsrc || null});
+  background-position: center center;
+  background-repeat: none;
+  background-size: cover;
+  min-height: 500px;
+  padding-top: 220px;
+  margin-top: 96px;
+`
 
 const Footer = () => {
   const social = UseSocial()
 
   return (
     <React.Fragment>
-      <div
-        css={css`
-          background-image: url(https://res.cloudinary.com/davidportillo-tenor/image/upload/v1583174212/homepage/subfooter-bg2_iweejs.png);
-          min-height: 500px;
-          padding-top: 220px;
-          margin-top: 96px;
-        `}
-      >
+      <FooterBG imgsrc={FooterImg}>
         <Container className="text-center text-white p-1">
           <h2
             css={css`
@@ -39,7 +45,7 @@ const Footer = () => {
             - Henry Wadsworth Longfellow
           </h4>
         </Container>
-      </div>
+      </FooterBG>
       <Navbar
         bg="dark"
         variant="dark"

@@ -1,32 +1,15 @@
 import React from "react"
-import { Container, Carousel } from "react-bootstrap"
+import { Carousel } from "react-bootstrap"
 import { FaChevronRight } from "react-icons/fa"
 import { Link } from "gatsby"
 import UseFeaturedAcclaims from "../hooks/use-FeaturedAcclaims"
-import { css, cx } from "@emotion/react"
+import { css } from "@emotion/react"
 
 export default function HomeAcclaims() {
   const acclaims = UseFeaturedAcclaims()
 
   return (
     <React.Fragment>
-      <Container>
-        {/* <h2
-          className="text-center text-uppercase h1"
-          css={css`
-            color: #2c3e50;
-            font-family: "Merriweather", serif;
-            font-size: 36px;
-            font-weight: 400;
-            line-height: 60px;
-            text-transform: uppercase;
-            margin-top: 0;
-            margin-bottom: 48px;
-          `}
-        >
-          Acclaims
-        </h2> */}
-      </Container>
       <Carousel indicators={true} controls={false}>
         {acclaims.map(acclaim => (
           <Carousel.Item
