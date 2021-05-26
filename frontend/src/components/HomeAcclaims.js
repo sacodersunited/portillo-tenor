@@ -29,7 +29,7 @@ export default function HomeAcclaims() {
                     display: flex;
                     align-items: center;
                     font-style: italic;
-                    @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+                    @media only screen and (max-width: 740px) {
                       font-size: 18px;
                     }
                   `}
