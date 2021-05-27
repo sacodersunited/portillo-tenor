@@ -28,13 +28,13 @@ export default function HomeMedia() {
           <ResponsiveEmbed aspectRatio="16by9">
             <iframe
               title="vimeo video of David Portillo tenor"
-              class="embed-responsive-item"
+              className="embed-responsive-item"
               src="https://player.vimeo.com/video/154792661?title=0&byline=0&portrait=0"
               width="760"
               height="427"
-              webkitallowfullscreen
-              mozallowfullscreen
-              allowfullscreen
+              webkitallowfullscreen="true"
+              mozallowfullscreen="true"
+              allowFullScreen
             ></iframe>
           </ResponsiveEmbed>
         </Col>

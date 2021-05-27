@@ -58,7 +58,7 @@ const Calendar = () => {
           Upcoming Schedule
         </h2>
         {futureEvents.map(event => (
-          <CalendarItem event={event} isCalendarPage />
+          <CalendarItem event={event} isCalendarPage key={event.id} />
         ))}
         <h2
           className="text-center text-uppercase h1"
@@ -76,7 +76,7 @@ const Calendar = () => {
           Past Performances
         </h2>
         {uniqueYears.length > 0 ? (
-          <div class="col-md-12">
+          <div className="col-md-12">
             <h2
               className="text-center calendar-page-h2-year font-weight-lighter mt-5 mb-5 display-4"
               css={css``}
@@ -94,12 +94,18 @@ const Calendar = () => {
                 }
                 return null
               })
-              .map(calEvent => <CalendarItem event={calEvent} isCalendarPage />)
+              .map(calEvent => (
+                <CalendarItem
+                  event={calEvent}
+                  isCalendarPage
+                  key={calEvent.id}
+                />
+              ))
           : null}
 
         {uniqueYears.length > 1 ? (
-          <div class="col-md-12">
-            <h2 class="text-center calendar-page-h2-year font-weight-lighter mt-5 mb-5 display-4">
+          <div className="col-md-12">
+            <h2 className="text-center calendar-page-h2-year font-weight-lighter mt-5 mb-5 display-4">
               {uniqueYears[1]}
             </h2>
           </div>
@@ -114,7 +120,13 @@ const Calendar = () => {
                 }
                 return null
               })
-              .map(calEvent => <CalendarItem event={calEvent} isCalendarPage />)
+              .map(calEvent => (
+                <CalendarItem
+                  event={calEvent}
+                  isCalendarPage
+                  key={calEvent.id}
+                />
+              ))
           : null}
       </Container>
     </Layout>

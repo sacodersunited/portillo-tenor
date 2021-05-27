@@ -1,11 +1,11 @@
 import React from "react"
 import { Row, Col } from "react-bootstrap"
 import Moment from "react-moment"
-import { css, cx } from "@emotion/react"
+import { css } from "@emotion/react"
 
 const CalendarItem = ({ event, isCalendarPage }) => {
   const today = new Date()
-  console.log("calender item", event)
+
   return (
     <Row className="mb-4" key={event.id}>
       <Col md={{ span: 2, offset: 2 }}>

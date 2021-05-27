@@ -33,7 +33,9 @@ const HomeCalendar = () => {
         Upcoming Performances
       </h2>
       {publishedEvents ? (
-        publishedEvents.map(event => <CalendarItem event={event} />)
+        publishedEvents.map(event => (
+          <CalendarItem event={event} key={event.id} />
+        ))
       ) : (
         <p className="text-muted">No Events. Please check back soon.</p>
       )}

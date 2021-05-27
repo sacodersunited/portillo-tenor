@@ -15,7 +15,7 @@ const HomeCarousel = () => {
             <GatsbyImage
               className="d-block w-100"
               image={photo.image}
-              alt={photo.name}
+              alt={photo.caption}
             />
 
             {photo.caption && (
