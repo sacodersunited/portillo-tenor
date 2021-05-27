@@ -5,7 +5,6 @@ import UseAllCalendar from "../hooks/use-AllCalendar"
 import CalendarItem from "../components/calendar-item"
 import BackgroundSection from "../components/backgroundSection"
 import { Container } from "react-bootstrap"
-import { graphql, useStaticQuery } from "gatsby"
 import { css } from "@emotion/react"
 import UseBanner from "../hooks/use-Banner"
 import { getImage } from "gatsby-plugin-image"
@@ -33,23 +32,6 @@ const Calendar = () => {
       return total
     }, [])
     .filter((item, i, ar) => ar.indexOf(item) === i)
-
-  const data = useStaticQuery(
-    graphql`
-      query {
-        desktop: file(relativePath: { eq: "calendar-bg.png" }) {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-      }
-    `
-  )
-
-  // Set ImageData.
-  const imageData = data.desktop.childImageSharp.fluid
 
   return (
     <Layout isFullWidth>

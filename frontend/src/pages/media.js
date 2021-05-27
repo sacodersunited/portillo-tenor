@@ -25,20 +25,6 @@ function Media() {
   const data = useStaticQuery(
     graphql`
       query {
-        desktop: file(relativePath: { eq: "media-header-bg.png" }) {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-          }
-        }
-
         videos: allStrapiVideo {
           nodes {
             id
@@ -104,8 +90,6 @@ function Media() {
     setImagesCaptions(arrImagesCaptions)
   }
 
-  // Set ImageData.
-  const imageData = data.desktop.childImageSharp.fluid
   const featured = data.photoalbum.nodes.filter(album => album.strapiId === 21)
 
   return (
