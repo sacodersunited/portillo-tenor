@@ -173,8 +173,8 @@ function Media() {
                         {merch.description}
                       </Card.Text>
                       <Row style={{ minHeight: "23.64px" }}>
-                        <Col>
-                          {merch.itunes !== "blank" ? (
+                        {merch.itunes !== "blank" ? (
+                          <Col>
                             <a
                               href={merch.itunes}
                               style={{ fontSize: "smaller" }}
@@ -185,10 +185,10 @@ function Media() {
                               />
                               Itunes
                             </a>
-                          ) : null}
-                        </Col>
-                        <Col>
-                          {merch.website !== "blank" ? (
+                          </Col>
+                        ) : null}
+                        {merch.website !== "blank" ? (
+                          <Col>
                             <a
                               href={merch.website}
                               style={{ fontSize: "smaller" }}
@@ -199,11 +199,11 @@ function Media() {
                               />
                               Website
                             </a>
-                          ) : null}
-                        </Col>
+                          </Col>
+                        ) : null}
 
-                        <Col>
-                          {merch.amazon !== "blank" ? (
+                        {merch.amazon !== "blank" ? (
+                          <Col>
                             <React.Fragment>
                               <a
                                 href={merch.amazon}
@@ -216,10 +216,10 @@ function Media() {
                                 Amazon
                               </a>
                             </React.Fragment>
-                          ) : null}
-                        </Col>
-                        <Col>
-                          {merch.spotify !== "blank" ? (
+                          </Col>
+                        ) : null}
+                        {merch.spotify !== "blank" ? (
+                          <Col>
                             <a
                               href={merch.spotify}
                               style={{ fontSize: "smaller" }}
@@ -230,8 +230,8 @@ function Media() {
                               />
                               Spotify
                             </a>
-                          ) : null}
-                        </Col>
+                          </Col>
+                        ) : null}
                       </Row>
                     </Card.Body>
                   </Card>
