@@ -72,6 +72,9 @@ const Header = ({ siteTitle }) => {
                   &:hover {
                     color: white;
                   }
+                  @media only screen and (min-width: 320px) {
+                    margin-left: 0;
+                  }
                 `}
               />
             </Nav.Link>
@@ -82,6 +85,9 @@ const Header = ({ siteTitle }) => {
                   margin-left: 10px;
                   &:hover {
                     color: white;
+                  }
+                  @media only screen and (min-width: 320px) {
+                    margin-left: 0;
                   }
                 `}
               />
