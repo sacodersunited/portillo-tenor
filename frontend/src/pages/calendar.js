@@ -95,7 +95,12 @@ const Calendar = () => {
         </h2>
         {uniqueYears.length > 0 ? (
           <div class="col-md-12">
-            <h2 class="text-center calendar-page-h2-year">{uniqueYears[0]}</h2>
+            <h2
+              className="text-center calendar-page-h2-year font-weight-lighter mt-5 mb-5 display-4"
+              css={css``}
+            >
+              {uniqueYears[0]}
+            </h2>
           </div>
         ) : null}
         {uniqueYears.length > 0
@@ -112,7 +117,9 @@ const Calendar = () => {
 
         {uniqueYears.length > 1 ? (
           <div class="col-md-12">
-            <h2 class="text-center calendar-page-h2-year">{uniqueYears[1]}</h2>
+            <h2 class="text-center calendar-page-h2-year font-weight-lighter mt-5 mb-5 display-4">
+              {uniqueYears[1]}
+            </h2>
           </div>
         ) : null}
 

@@ -4,20 +4,33 @@ import { Navbar, Container, Col, Row } from "react-bootstrap"
 import { FaTwitterSquare, FaFacebookSquare, FaInstagram } from "react-icons/fa"
 import { css } from "@emotion/react"
 import UseSocial from "../hooks/use-Social"
+import styled from "@emotion/styled"
+import FooterImg from "../images/subfooter-bg2.png"
+
+const FooterBG = styled.div`
+  background-image: url(${props => props.imgsrc || null});
+  background-position: center center;
+  background-repeat: none;
+  background-size: cover;
+  min-height: 500px;
+  padding-top: 220px;
+  margin-top: 96px;
+  @media only screen and (max-width: 740px) {
+    min-height: 300px;
+    background-position: 65% 75%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+  }
+`
 
 const Footer = () => {
   const social = UseSocial()
 
   return (
     <React.Fragment>
-      <div
-        css={css`
-          background-image: url(https://res.cloudinary.com/davidportillo-tenor/image/upload/v1583174212/homepage/subfooter-bg2_iweejs.png);
-          min-height: 500px;
-          padding-top: 220px;
-          margin-top: 96px;
-        `}
-      >
+      <FooterBG imgsrc={FooterImg}>
         <Container className="text-center text-white p-1">
           <h2
             css={css`
@@ -25,6 +38,9 @@ const Footer = () => {
               font-weight: 300;
               font-style: italic;
               font-family: "Merriweather", serif;
+              @media only screen and (max-width: 740px) {
+                font-size: 24px;
+              }
             `}
           >
             Music is the universal language of mankind
@@ -34,12 +50,15 @@ const Footer = () => {
               font-family: "Open Sans", sans-serif;
               font-size: 32px;
               font-weight: 300;
+              @media only screen and (max-width: 740px) {
+                font-size: 18px;
+              }
             `}
           >
             - Henry Wadsworth Longfellow
           </h4>
         </Container>
-      </div>
+      </FooterBG>
       <Navbar
         bg="dark"
         variant="dark"

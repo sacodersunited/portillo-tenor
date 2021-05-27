@@ -20,6 +20,13 @@ const BackgroundSection = ({ className, title, image }) => {
         justify-content: center;
         align-items: center;
         margin-bottom: 48px;
+        @media only screen and (max-width: 740px) {
+          min-height: 200px;
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          margin-top: 0;
+        }
       `}
       preserveStackingContext
     >
@@ -27,6 +34,9 @@ const BackgroundSection = ({ className, title, image }) => {
         className="display-4"
         css={css`
           font-family: "Pacifico";
+          @media only screen and (max-width: 740px) {
+            font-size: 36px;
+          }
         `}
       >
         {title}
