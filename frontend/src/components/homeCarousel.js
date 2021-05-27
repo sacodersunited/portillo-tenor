@@ -1,8 +1,8 @@
 import React from "react"
 import { Carousel } from "react-bootstrap"
 import UseCarousel from "../hooks/use-Carousel"
-import { css, cx } from "@emotion/react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { css } from "@emotion/react"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const HomeCarousel = () => {
   const carouselPhotos = UseCarousel()
