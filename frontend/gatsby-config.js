@@ -6,6 +6,7 @@ module.exports = {
     description: `David Portillo tenor website.`,
     author: `@sacodersunited`,
   },
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
