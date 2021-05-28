@@ -25,20 +25,6 @@ function Media() {
   const data = useStaticQuery(
     graphql`
       query {
-        desktop: file(relativePath: { eq: "media-header-bg.png" }) {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-          }
-        }
-
         videos: allStrapiVideo {
           nodes {
             id
@@ -104,8 +90,6 @@ function Media() {
     setImagesCaptions(arrImagesCaptions)
   }
 
-  // Set ImageData.
-  const imageData = data.desktop.childImageSharp.fluid
   const featured = data.photoalbum.nodes.filter(album => album.strapiId === 21)
 
   return (
@@ -189,8 +173,8 @@ function Media() {
                         {merch.description}
                       </Card.Text>
                       <Row style={{ minHeight: "23.64px" }}>
-                        <Col>
-                          {merch.itunes !== "blank" ? (
+                        {merch.itunes !== "blank" ? (
+                          <Col>
                             <a
                               href={merch.itunes}
                               style={{ fontSize: "smaller" }}
@@ -201,10 +185,10 @@ function Media() {
                               />
                               Itunes
                             </a>
-                          ) : null}
-                        </Col>
-                        <Col>
-                          {merch.website !== "blank" ? (
+                          </Col>
+                        ) : null}
+                        {merch.website !== "blank" ? (
+                          <Col>
                             <a
                               href={merch.website}
                               style={{ fontSize: "smaller" }}
@@ -215,11 +199,11 @@ function Media() {
                               />
                               Website
                             </a>
-                          ) : null}
-                        </Col>
+                          </Col>
+                        ) : null}
 
-                        <Col>
-                          {merch.amazon !== "blank" ? (
+                        {merch.amazon !== "blank" ? (
+                          <Col>
                             <React.Fragment>
                               <a
                                 href={merch.amazon}
@@ -232,10 +216,10 @@ function Media() {
                                 Amazon
                               </a>
                             </React.Fragment>
-                          ) : null}
-                        </Col>
-                        <Col>
-                          {merch.spotify !== "blank" ? (
+                          </Col>
+                        ) : null}
+                        {merch.spotify !== "blank" ? (
+                          <Col>
                             <a
                               href={merch.spotify}
                               style={{ fontSize: "smaller" }}
@@ -246,8 +230,8 @@ function Media() {
                               />
                               Spotify
                             </a>
-                          ) : null}
-                        </Col>
+                          </Col>
+                        ) : null}
                       </Row>
                     </Card.Body>
                   </Card>

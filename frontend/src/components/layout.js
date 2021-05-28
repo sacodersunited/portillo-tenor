@@ -10,7 +10,6 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Footer from "./footer"
-import "bootstrap/dist/css/bootstrap.min.css"
 import { Container } from "react-bootstrap"
 
 const Layout = ({ children, isFullWidth = false }) => {

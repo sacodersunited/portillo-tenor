@@ -92,7 +92,7 @@ const Acclaims = () => {
           Press Features
         </h2>
         {pressFeatures.map(pressFeature => (
-          <article className="mb-5">
+          <article className="mb-5" key={pressFeature.id}>
             <Row key={pressFeature.id}>
               <PressCard data={pressFeature} />
             </Row>
@@ -116,7 +116,7 @@ const Acclaims = () => {
         <div className="section acclaims">
           {group.map(role => (
             // this level for role + thumbnail
-            <Row className="mb-5">
+            <Row className="mb-5" key={role.id}>
               <Col md={4}>
                 <AcclaimThumbnail
                   imgsrc={
@@ -145,7 +145,7 @@ const Acclaims = () => {
               <Col md={{ span: 6, offset: 1 }}>
                 {role.nodes.map(review => (
                   // this level for reviews
-                  <Card>
+                  <Card key={review.id}>
                     <Card.Body>
                       <Card.Text className="text-secondary font-italic">
                         {review.snippet}

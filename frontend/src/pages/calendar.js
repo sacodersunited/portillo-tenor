@@ -5,7 +5,6 @@ import UseAllCalendar from "../hooks/use-AllCalendar"
 import CalendarItem from "../components/calendar-item"
 import BackgroundSection from "../components/backgroundSection"
 import { Container } from "react-bootstrap"
-import { graphql, useStaticQuery } from "gatsby"
 import { css } from "@emotion/react"
 import UseBanner from "../hooks/use-Banner"
 import { getImage } from "gatsby-plugin-image"
@@ -34,23 +33,6 @@ const Calendar = () => {
     }, [])
     .filter((item, i, ar) => ar.indexOf(item) === i)
 
-  const data = useStaticQuery(
-    graphql`
-      query {
-        desktop: file(relativePath: { eq: "calendar-bg.png" }) {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-      }
-    `
-  )
-
-  // Set ImageData.
-  const imageData = data.desktop.childImageSharp.fluid
-
   return (
     <Layout isFullWidth>
       <SEO title="David Portillo tenor calendar of events, shows, productions" />
@@ -76,7 +58,7 @@ const Calendar = () => {
           Upcoming Schedule
         </h2>
         {futureEvents.map(event => (
-          <CalendarItem event={event} isCalendarPage />
+          <CalendarItem event={event} isCalendarPage key={event.id} />
         ))}
         <h2
           className="text-center text-uppercase h1"
@@ -94,7 +76,7 @@ const Calendar = () => {
           Past Performances
         </h2>
         {uniqueYears.length > 0 ? (
-          <div class="col-md-12">
+          <div className="col-md-12">
             <h2
               className="text-center calendar-page-h2-year font-weight-lighter mt-5 mb-5 display-4"
               css={css``}
@@ -112,12 +94,18 @@ const Calendar = () => {
                 }
                 return null
               })
-              .map(calEvent => <CalendarItem event={calEvent} isCalendarPage />)
+              .map(calEvent => (
+                <CalendarItem
+                  event={calEvent}
+                  isCalendarPage
+                  key={calEvent.id}
+                />
+              ))
           : null}
 
         {uniqueYears.length > 1 ? (
-          <div class="col-md-12">
-            <h2 class="text-center calendar-page-h2-year font-weight-lighter mt-5 mb-5 display-4">
+          <div className="col-md-12">
+            <h2 className="text-center calendar-page-h2-year font-weight-lighter mt-5 mb-5 display-4">
               {uniqueYears[1]}
             </h2>
           </div>
@@ -132,7 +120,13 @@ const Calendar = () => {
                 }
                 return null
               })
-              .map(calEvent => <CalendarItem event={calEvent} isCalendarPage />)
+              .map(calEvent => (
+                <CalendarItem
+                  event={calEvent}
+                  isCalendarPage
+                  key={calEvent.id}
+                />
+              ))
           : null}
       </Container>
     </Layout>

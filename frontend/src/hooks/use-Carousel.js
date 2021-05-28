@@ -4,13 +4,17 @@ const UseCarousel = () => {
   const data = useStaticQuery(graphql`
     query HomeCarousel {
       allStrapiCarousel {
-        edges {
-          node {
-            strapiId
-            caption
-            image {
-              localFile {
-                publicURL
+        nodes {
+          strapiId
+          caption
+          image {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 1440
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
           }
@@ -19,10 +23,10 @@ const UseCarousel = () => {
     }
   `)
 
-  return data.allStrapiCarousel.edges.map(carouselItem => ({
-    id: carouselItem.node.strapiId,
-    caption: carouselItem.node.caption,
-    image: carouselItem.node.image.localFile.publicURL,
+  return data.allStrapiCarousel.nodes.map(carouselItem => ({
+    id: carouselItem.strapiId,
+    caption: carouselItem.caption,
+    image: carouselItem.image.localFile.childImageSharp.gatsbyImageData,
   }))
 }
 
