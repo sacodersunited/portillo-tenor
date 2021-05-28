@@ -12,6 +12,7 @@ const UseBanner = () => {
             localFile {
               childImageSharp {
                 gatsbyImageData(
+                  quality: 100
                   width: 1440
                   placeholder: BLURRED
                   formats: [AUTO, WEBP, AVIF]

@@ -12,6 +12,7 @@ const UseCarousel = () => {
               childImageSharp {
                 gatsbyImageData(
                   width: 1440
+                  quality: 100
                   placeholder: BLURRED
                   formats: [AUTO, WEBP, AVIF]
                 )
