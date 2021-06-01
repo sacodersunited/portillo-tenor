@@ -50,7 +50,7 @@ const CalendarItem = ({ event, isCalendarPage }) => {
             font-size: 32px;
             font-weight: 600;
             font-style: italic;
-            text-transform: uppercase;
+            /* text-transform: uppercase; */
             margin-top: 0;
           `}
           className="text-center"
