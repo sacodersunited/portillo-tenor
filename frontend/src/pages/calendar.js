@@ -28,7 +28,9 @@ const Calendar = () => {
   const uniqueYears = pastEvents
     .reduce((total, event) => {
       const newEndDate = new Date(event.endDate)
-      total.push(newEndDate.getFullYear())
+      if (newEndDate.getFullYear() !== new Date().getFullYear()) {
+        total.push(newEndDate.getFullYear())
+      }
       return total
     }, [])
     .filter((item, i, ar) => ar.indexOf(item) === i)
@@ -88,7 +90,7 @@ const Calendar = () => {
         {uniqueYears.length > 0
           ? pastEvents
               .filter(event => {
-                const newEndDate = new Date(event.endDate).getFullYear()
+                const newEndDate = new Date(event.startDate).getFullYear()
                 if (newEndDate === uniqueYears[0]) {
                   return event
                 }
@@ -114,7 +116,7 @@ const Calendar = () => {
         {uniqueYears.length > 1
           ? pastEvents
               .filter(event => {
-                const newEndDate = new Date(event.endDate).getFullYear()
+                const newEndDate = new Date(event.startDate).getFullYear()
                 if (newEndDate === uniqueYears[1]) {
                   return event
                 }
