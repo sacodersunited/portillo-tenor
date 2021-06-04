@@ -269,14 +269,12 @@ function Media() {
                 .map(img => {
                   return img.caption
                 })
-              // console.log("image caps", arrImagesCaptions)
 
               const arrImages = album.image
                 .filter(image => image.name.indexOf("thumb") === -1)
                 .map(img => {
                   return img.localFile.publicURL
                 })
-              // console.log("arrImages", arrImages)
 
               if (
                 album.image === null ||
