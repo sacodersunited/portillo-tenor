@@ -29,7 +29,6 @@ const Layout = ({ children, isFullWidth = false }) => {
       {isFullWidth ? (
         <React.Fragment>
           <main>{children}</main>
-
           <Footer />
         </React.Fragment>
       ) : (

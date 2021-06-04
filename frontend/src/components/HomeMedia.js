@@ -3,9 +3,23 @@ import { Container } from "react-bootstrap"
 import { Row, Col, ResponsiveEmbed } from "react-bootstrap"
 import { Link } from "gatsby"
 import { FaChevronRight } from "react-icons/fa"
-import { css, cx } from "@emotion/react"
+import { css } from "@emotion/react"
+import { graphql, useStaticQuery } from "gatsby"
+import ReactPlayer from "react-player"
 
 export default function HomeMedia() {
+  const data = useStaticQuery(
+    graphql`
+      {
+        strapiVideo(strapiId: { eq: 1 }) {
+          strapiId
+          title
+          url
+        }
+      }
+    `
+  )
+
   return (
     <Container>
       <h2
@@ -26,16 +40,13 @@ export default function HomeMedia() {
       <Row>
         <Col md={{ span: 9, offset: 2 }}>
           <ResponsiveEmbed aspectRatio="16by9">
-            <iframe
-              title="vimeo video of David Portillo tenor"
-              className="embed-responsive-item"
-              src="https://player.vimeo.com/video/154792661?title=0&byline=0&portrait=0"
+            <ReactPlayer
+              url={data.strapiVideo.url}
               width="760"
               height="427"
-              webkitallowfullscreen="true"
-              mozallowfullscreen="true"
-              allowFullScreen
-            ></iframe>
+              muted={true}
+              controls={true}
+            />
           </ResponsiveEmbed>
         </Col>
       </Row>

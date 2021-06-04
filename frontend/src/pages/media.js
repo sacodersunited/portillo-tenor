@@ -25,15 +25,22 @@ function Media() {
   const data = useStaticQuery(
     graphql`
       query {
-        videos: allStrapiVideo {
+        videos: allStrapiVideo(sort: { fields: strapiId, order: DESC }) {
           nodes {
+            strapiId
             id
             title
             url
           }
         }
 
-        merch: allStrapiMerch {
+        featuredVideo: strapiVideo(strapiId: { eq: 1 }) {
+          strapiId
+          title
+          url
+        }
+
+        merch: allStrapiMerch(sort: { order: DESC, fields: strapiId }) {
           nodes {
             id
             title
@@ -107,7 +114,7 @@ function Media() {
             <Col md={9} className="col-md-offset-2">
               <div className="embed-responsive embed-responsive-16by9">
                 <ReactPlayer
-                  url={data.videos.nodes[0].url}
+                  url={data.featuredVideo.url}
                   width="760"
                   height="427"
                   muted={true}
@@ -118,7 +125,8 @@ function Media() {
           </Row>
           <Row>
             {data.videos.nodes.map((video, index) => {
-              if (index === 0) {
+              // Do not show the featured video again
+              if (video.strapiId === 1) {
                 return null
               }
               return (
