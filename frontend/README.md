@@ -1,6 +1,6 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/00ef0086-db97-496c-bb64-c239cbe28789/deploy-status)](https://app.netlify.com/sites/cranky-keller-cab144/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6782043e-235d-4f11-8c4c-52a7c513de07/deploy-status)](https://app.netlify.com/sites/laughing-brown-8764da/deploys)
 
 <p align="center">
   <a href="https://www.gatsbyjs.org">
