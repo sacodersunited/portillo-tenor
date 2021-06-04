@@ -56,6 +56,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "preview": "cd ~/Code/portillo-tenor/frontend && npm run build && netlify deploy --dir=public",
     "deploy": "cd ~/Code/portillo-tenor/frontend && npm run build && netlify deploy --dir=public --prod"
   },
   "repository": {
