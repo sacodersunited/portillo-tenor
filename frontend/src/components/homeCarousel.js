@@ -23,7 +23,7 @@ const HomeCarousel = () => {
                 <p
                   className="display-4"
                   css={css`
-                    font-family: "Pacifico";
+                    font-family: "Merriweather";
                     @media only screen and (max-width: 740px) {
                       font-size: 22px;
                     }

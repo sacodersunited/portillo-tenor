@@ -9,7 +9,6 @@
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@fontsource/merriweather": "^4.3.0",
-    "@fontsource/pacifico": "^4.3.0",
     "bootstrap": "^4.6.0",
     "dotenv": "^8.2.0",
     "gatsby": "^3.5.1",
@@ -56,8 +55,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "preview": "cd ~/Code/portillo-tenor/frontend && npm run build && netlify deploy --dir=public",
-    "deploy": "cd ~/Code/portillo-tenor/frontend && npm run build && netlify deploy --dir=public --prod"
+    "preview": "npm run build && netlify deploy --dir=public",
+    "deploy": "npm run build && netlify deploy --dir=public --prod"
   },
   "repository": {
     "type": "git",
