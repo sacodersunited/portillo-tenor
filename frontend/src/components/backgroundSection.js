@@ -1,6 +1,7 @@
 import React from "react"
 import { css } from "@emotion/react"
 import { BgImage } from "gbimage-bridge"
+import Pulse from "react-reveal/Pulse"
 
 const BackgroundSection = ({ className, title, image }) => {
   return (
@@ -39,7 +40,7 @@ const BackgroundSection = ({ className, title, image }) => {
           }
         `}
       >
-        {title}
+        <Pulse>{title}</Pulse>
       </h2>
     </BgImage>
   )

@@ -17,7 +17,7 @@ const Biography = () => {
   return (
     <Layout>
       <SEO title="David Portillo Tenor biography" />
-      {/* <pre>{JSON.stringify(strapiBiography, null, 2)}</pre> */}
+
       <Container>
         <Row>
           <Col md={8}>

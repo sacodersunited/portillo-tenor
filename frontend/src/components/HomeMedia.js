@@ -44,7 +44,7 @@ export default function HomeMedia() {
               url={data.strapiVideo.url}
               width="760"
               height="427"
-              muted={true}
+              muted={false}
               controls={true}
             />
           </ResponsiveEmbed>
