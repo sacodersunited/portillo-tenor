@@ -278,9 +278,9 @@ function Media({ data }) {
                       css={css`
                         max-height: 233px;
                         border-radius: 10px;
-                        transition: transform 0.5s ease;
+                        transition: all 0.2s ease-in-out;
                         &:hover {
-                          transform: scale(1.2);
+                          transform: scale(1.1);
                           cursor: pointer;
                         }
                       `}
