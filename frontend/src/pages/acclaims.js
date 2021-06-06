@@ -9,6 +9,7 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import UseBanner from "../hooks/use-Banner"
 import { getImage } from "gatsby-plugin-image"
+import { Slide } from "react-reveal"
 
 const AcclaimThumbnail = styled.div`
   background-image: url(${props => props.imgsrc || null});
@@ -43,16 +44,18 @@ const PressCard = ({ data }) => (
       />
     </Col>
     <Col md={{ span: 6, offset: 1 }}>
-      <Card>
-        <Card.Body>
-          <Card.Text className="text-secondary font-italic">
-            {data.snippet}
-          </Card.Text>
-          <Card.Link href={data.link} target="_blank">
-            -{data.reviewer}
-          </Card.Link>
-        </Card.Body>
-      </Card>
+      <Slide right>
+        <Card>
+          <Card.Body>
+            <Card.Text className="text-secondary font-italic">
+              {data.snippet}
+            </Card.Text>
+            <Card.Link href={data.link} target="_blank">
+              -{data.reviewer}
+            </Card.Link>
+          </Card.Body>
+        </Card>
+      </Slide>
     </Col>
   </React.Fragment>
 )
@@ -145,16 +148,18 @@ const Acclaims = () => {
               <Col md={{ span: 6, offset: 1 }}>
                 {role.nodes.map(review => (
                   // this level for reviews
-                  <Card key={review.id}>
-                    <Card.Body>
-                      <Card.Text className="text-secondary font-italic">
-                        {review.snippet}
-                      </Card.Text>
-                      <Card.Link href={review.link} target="_blank">
-                        -{review.reviewer}
-                      </Card.Link>
-                    </Card.Body>
-                  </Card>
+                  <Slide key={review.id} right>
+                    <Card>
+                      <Card.Body>
+                        <Card.Text className="text-secondary font-italic">
+                          {review.snippet}
+                        </Card.Text>
+                        <Card.Link href={review.link} target="_blank">
+                          -{review.reviewer}
+                        </Card.Link>
+                      </Card.Body>
+                    </Card>
+                  </Slide>
                 ))}
               </Col>
             </Row>
