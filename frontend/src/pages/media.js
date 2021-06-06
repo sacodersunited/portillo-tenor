@@ -12,8 +12,9 @@ import UseBanner from "../hooks/use-Banner"
 import { getImage } from "gatsby-plugin-image"
 import "react-image-lightbox/style.css" // This only needs to be imported once in your app
 import "../css/media.css"
+import { css } from "@emotion/react"
 
-function Media() {
+function Media({ data }) {
   const [isOpen, setIsOpen] = useState(false)
   const [images, setImages] = useState([])
   const [imagesCaptions, setImagesCaptions] = useState([])
@@ -21,73 +22,6 @@ function Media() {
   const banner = UseBanner()
   const acclaimData = banner.filter(acclaim => acclaim.page === "media")
   const image = getImage(acclaimData[0].image)
-
-  const data = useStaticQuery(
-    graphql`
-      query {
-        videos: allStrapiVideo(sort: { fields: strapiId, order: DESC }) {
-          nodes {
-            strapiId
-            id
-            title
-            url
-          }
-        }
-
-        featuredVideo: strapiVideo(strapiId: { eq: 1 }) {
-          strapiId
-          title
-          url
-        }
-
-        merch: allStrapiMerch(sort: { order: DESC, fields: strapiId }) {
-          nodes {
-            id
-            title
-            strapiId
-            website
-            amazon
-            itunes
-            spotify
-            description
-            image {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(
-                    width: 318
-                    placeholder: BLURRED
-                    formats: [AUTO, WEBP, AVIF]
-                  )
-                }
-              }
-            }
-          }
-        }
-
-        photoalbum: allStrapiPhotoAlbum {
-          nodes {
-            image {
-              name
-              caption
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(
-                    placeholder: BLURRED
-                    formats: [AUTO, WEBP, AVIF]
-                  )
-                }
-                publicURL
-              }
-            }
-            title
-            strapiId
-            description
-            id
-          }
-        }
-      }
-    `
-  )
 
   function clickThumbnail(e, arrImages, arrImagesCaptions) {
     e.preventDefault()
@@ -110,6 +44,21 @@ function Media() {
 
       <section className="media">
         <Container align="center">
+          <h2
+            className="text-center text-uppercase h1"
+            css={css`
+              color: #2c3e50;
+              font-family: "Merriweather", serif;
+              font-size: 36px;
+              font-weight: 400;
+              line-height: 60px;
+              text-transform: uppercase;
+              margin-top: 0;
+              margin-bottom: 48px;
+            `}
+          >
+            Videos
+          </h2>
           <Row style={{ justifyContent: "center", marginBottom: "30px" }}>
             <Col md={9} className="col-md-offset-2">
               <div className="embed-responsive embed-responsive-16by9">
@@ -147,8 +96,23 @@ function Media() {
               )
             })}
           </Row>
+          {/* Merch */}
+          <h2
+            className="text-center text-uppercase h1"
+            css={css`
+              color: #2c3e50;
+              font-family: "Merriweather", serif;
+              font-size: 36px;
+              font-weight: 400;
+              line-height: 60px;
+              text-transform: uppercase;
+              margin-top: 0;
+              margin-bottom: 48px;
+            `}
+          >
+            Merchandise
+          </h2>
           <Row>
-            {/* Merch */}
             {data.merch.nodes.map((merch, index) => {
               return (
                 <Col
@@ -247,8 +211,23 @@ function Media() {
               )
             })}
           </Row>
+          {/* Featured Photo */}
+          <h2
+            className="text-center text-uppercase h1"
+            css={css`
+              color: #2c3e50;
+              font-family: "Merriweather", serif;
+              font-size: 36px;
+              font-weight: 400;
+              line-height: 60px;
+              text-transform: uppercase;
+              margin-top: 0;
+              margin-bottom: 48px;
+            `}
+          >
+            Photo Albums
+          </h2>
           <Row>
-            {/* Featured Photo */}
             <Col md={12} style={{ marginBottom: "10px" }}>
               <GatsbyImage
                 image={
@@ -296,10 +275,15 @@ function Media() {
                       }
                       className="center-block img-responsive img-rounded pic-grid"
                       alt={album.title}
-                      style={{
-                        maxHeight: "233px",
-                        borderRadius: "10px",
-                      }}
+                      css={css`
+                        max-height: 233px;
+                        border-radius: 10px;
+                        transition: transform 0.5s ease;
+                        &:hover {
+                          transform: scale(1.2);
+                          cursor: pointer;
+                        }
+                      `}
                       onClick={e =>
                         clickThumbnail(e, arrImages, arrImagesCaptions)
                       }
@@ -340,4 +324,65 @@ function Media() {
     </Layout>
   )
 }
+export const query = graphql`
+  query {
+    videos: allStrapiVideo(sort: { fields: strapiId, order: DESC }) {
+      nodes {
+        strapiId
+        id
+        title
+        url
+      }
+    }
+
+    featuredVideo: strapiVideo(strapiId: { eq: 1 }) {
+      strapiId
+      title
+      url
+    }
+
+    merch: allStrapiMerch(sort: { order: DESC, fields: strapiId }) {
+      nodes {
+        id
+        title
+        strapiId
+        website
+        amazon
+        itunes
+        spotify
+        description
+        image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(
+                width: 318
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
+        }
+      }
+    }
+
+    photoalbum: allStrapiPhotoAlbum {
+      nodes {
+        image {
+          name
+          caption
+          localFile {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            }
+            publicURL
+          }
+        }
+        title
+        strapiId
+        description
+        id
+      }
+    }
+  }
+`
 export default Media
