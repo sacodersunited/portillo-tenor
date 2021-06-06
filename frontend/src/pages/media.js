@@ -117,7 +117,7 @@ function Media() {
                   url={data.featuredVideo.url}
                   width="760"
                   height="427"
-                  muted={true}
+                  muted={false}
                   controls={true}
                 />
               </div>
@@ -138,7 +138,7 @@ function Media() {
                     <ReactPlayer
                       url={video.url}
                       controls
-                      muted={true}
+                      muted={false}
                       controls={true}
                       height="0px"
                     />
