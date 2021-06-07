@@ -58,7 +58,7 @@ module.exports = {
           "banner",
         ],
         //If using single types place them in this array.
-        singleTypes: [`biography`],
+        singleTypes: ["biography", "footer"],
         queryLimit: 1000,
       },
     },
