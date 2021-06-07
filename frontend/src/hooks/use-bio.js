@@ -7,8 +7,9 @@ const UseBio = () => {
         twitter
         facebook
         instagram
+        description
         bio_pdf {
-          localFile{
+          localFile {
             publicURL
           }
         }
@@ -23,12 +24,21 @@ const UseBio = () => {
             }
           }
         }
-        description
       }
     }
   `)
 
-  return data
+  const bioData = {
+    twitter: data.strapiBiography.twitter,
+    facebook: data.strapiBiography.facebook,
+    instagram: data.strapiBiography.instagram,
+    description: data.strapiBiography.description,
+    bioPdf: data.strapiBiography.bio_pdf.localFile.publicURL,
+    bioPic:
+      data.strapiBiography.bio_pic.localFile.childImageSharp.gatsbyImageData,
+  }
+
+  return bioData
 }
 
 export default UseBio

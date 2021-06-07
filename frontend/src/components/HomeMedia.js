@@ -7,18 +7,18 @@ import { css } from "@emotion/react"
 import { graphql, useStaticQuery } from "gatsby"
 import ReactPlayer from "react-player"
 
-export default function HomeMedia() {
+function HomeMedia() {
   const data = useStaticQuery(
     graphql`
       {
         strapiVideo(strapiId: { eq: 1 }) {
-          strapiId
-          title
           url
         }
       }
     `
   )
+
+  const featuredVideoUrl = data.strapiVideo.url
 
   return (
     <Container>
@@ -41,7 +41,7 @@ export default function HomeMedia() {
         <Col md={{ span: 9, offset: 2 }}>
           <ResponsiveEmbed aspectRatio="16by9">
             <ReactPlayer
-              url={data.strapiVideo.url}
+              url={featuredVideoUrl}
               width="760"
               height="427"
               muted={false}
@@ -57,3 +57,5 @@ export default function HomeMedia() {
     </Container>
   )
 }
+
+export default HomeMedia

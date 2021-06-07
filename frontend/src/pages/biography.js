@@ -13,7 +13,8 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { css } from "@emotion/react"
 
 const Biography = () => {
-  const { strapiBiography } = UseBio()
+  const bio = UseBio()
+
   return (
     <Layout>
       <SEO title="David Portillo Tenor biography" />
@@ -21,13 +22,7 @@ const Biography = () => {
       <Container>
         <Row>
           <Col md={8}>
-            <GatsbyImage
-              image={
-                strapiBiography.bio_pic.localFile.childImageSharp
-                  .gatsbyImageData
-              }
-              alt="Biography picture"
-            />
+            <GatsbyImage image={bio.bioPic} alt="Biography picture" />
           </Col>
           <Col md={4}>
             <h2
@@ -66,23 +61,23 @@ const Biography = () => {
             </h4>
             <Row className="text-center">
               <Col>
-                <a href={strapiBiography.facebook}>
+                <a href={bio.facebook}>
                   <FaFacebookSquare size={46} />
                 </a>
               </Col>
               <Col>
-                <a href={strapiBiography.twitter}>
+                <a href={bio.twitter}>
                   <FaTwitterSquare size={46} />
                 </a>
               </Col>
               <Col>
-                <a href={strapiBiography.instagram}>
+                <a href={bio.instagram}>
                   <FaInstagramSquare size={46} />
                 </a>
               </Col>
             </Row>
             <a
-              href={strapiBiography.bio_pdf.localFile.publicURL}
+              href={bio.bioPdf}
               className="mt-5 btn btn-outline-secondary btn-lg btn-block text-uppercase"
             >
               download biography
@@ -104,7 +99,7 @@ const Biography = () => {
             >
               biography
             </h2>
-            <ReactMarkdown children={strapiBiography.description} />
+            <ReactMarkdown children={bio.description} />
           </Col>
         </Row>
       </Container>
