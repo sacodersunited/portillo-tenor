@@ -6,7 +6,6 @@ module.exports = {
     description: `David Portillo tenor website.`,
     author: `@sacodersunited`,
   },
-  flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -19,7 +18,15 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-image`,
-    "gatsby-plugin-sass",
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        implementation: require("node-sass"),
+        sassOptions: {
+          precision: 6,
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

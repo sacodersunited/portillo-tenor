@@ -26,6 +26,7 @@
     "gatsby-transformer-sharp": "^3.5.0",
     "gbimage-bridge": "^0.1.4",
     "moment": "^2.26.0",
+    "node-sass": "^6.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.6.0",
@@ -37,7 +38,6 @@
     "react-moment": "^0.9.7",
     "react-player": "^2.9.0",
     "react-reveal": "^1.2.2",
-    "sass": "^1.34.0",
     "sharp": "^0.28.3"
   },
   "devDependencies": {
