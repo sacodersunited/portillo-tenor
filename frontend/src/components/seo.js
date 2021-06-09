@@ -34,6 +34,18 @@ function SEO({ description, lang, meta, title }) {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
+      link={[
+        {
+          rel: "stylesheet",
+          href:
+            "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css",
+        },
+        {
+          rel: "stylesheet",
+          href:
+            "https://cdn.jsdelivr.net/npm/react-image-lightbox@5.1.1/style.css",
+        },
+      ]}
       meta={[
         {
           name: `description`,
