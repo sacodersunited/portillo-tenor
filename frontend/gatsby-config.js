@@ -19,15 +19,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-image`,
     {
-      resolve: `gatsby-plugin-sass`,
-      options: {
-        implementation: require("node-sass"),
-        sassOptions: {
-          precision: 6,
-        },
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
