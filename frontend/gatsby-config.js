@@ -41,7 +41,15 @@ module.exports = {
         cssPropOptimization: true,
       },
     },
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        implementation: require("node-sass"),
+        sassOptions: {
+          precision: 6,
+        },
+      },
+    },
     {
       resolve: "gatsby-source-strapi",
       options: {
