@@ -10,9 +10,9 @@ import Lightbox from "react-image-lightbox"
 import { GatsbyImage } from "gatsby-plugin-image"
 import UseBanner from "../hooks/use-Banner"
 import { getImage } from "gatsby-plugin-image"
-// import "react-image-lightbox/style.css" // This only needs to be imported once in your app
-import "../css/media.css"
 import { css } from "@emotion/react"
+import "react-image-lightbox/style.css" // This only needs to be imported once in your app
+import "../css/media.css"
 
 function Media({ data }) {
   const [isOpen, setIsOpen] = useState(false)
