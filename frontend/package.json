@@ -10,7 +10,6 @@
     "@emotion/styled": "^11.3.0",
     "@fontsource/merriweather": "^4.4.5",
     "bootstrap": "^4.6.0",
-    "css-minimizer-webpack-plugin": "^3.0.1",
     "dotenv": "^8.6.0",
     "gatsby": "^3.6.2",
     "gatsby-background-image": "^1.5.3",
@@ -42,6 +41,7 @@
     "sharp": "^0.28.3"
   },
   "devDependencies": {
+    "css-minimizer-webpack-plugin": "^3.0.1",
     "eslint-config-react-app": "^5.2.1",
     "prettier": "^1.19.1"
   },
