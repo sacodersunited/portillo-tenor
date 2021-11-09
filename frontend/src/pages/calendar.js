@@ -19,7 +19,7 @@ const Calendar = () => {
 
   const futureEvents = calendarEvents
     .sort((a, b) => new Date(a.startDate) - new Date(b.startDate))
-    .filter(event => today < new Date(event.startDate))
+    .filter(event => today < new Date(event.endDate))
 
   const pastEvents = calendarEvents
     .sort((a, b) => new Date(b.startDate) - new Date(a.startDate))

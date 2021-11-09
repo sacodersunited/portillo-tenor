@@ -12,7 +12,7 @@ const HomeCalendar = () => {
   // filter events to only published and future events and limit 3
   const publishedEvents = calendarEvents
     .sort((a, b) => new Date(a.startDate) - new Date(b.startDate))
-    .filter(event => event.isPublished && today < new Date(event.startDate))
+    .filter(event => event.isPublished && today < new Date(event.endDate))
     .slice(0, 3)
 
   return (
