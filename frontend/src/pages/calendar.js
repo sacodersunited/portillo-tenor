@@ -28,12 +28,16 @@ const Calendar = () => {
   const uniqueYears = pastEvents
     .reduce((total, event) => {
       const newEndDate = new Date(event.endDate)
-      if (newEndDate.getFullYear() !== new Date().getFullYear()) {
-        total.push(newEndDate.getFullYear())
-      }
+      total.push(newEndDate.getFullYear())
       return total
     }, [])
     .filter((item, i, ar) => ar.indexOf(item) === i)
+    .slice(0, 3) // Only keep the first 3 years
+
+  const filteredPastEvents = pastEvents.filter(event => {
+    const eventYear = new Date(event.startDate).getFullYear()
+    return uniqueYears.includes(eventYear)
+  })
 
   return (
     <Layout isFullWidth>
@@ -71,65 +75,31 @@ const Calendar = () => {
             font-weight: 400;
             line-height: 60px;
             text-transform: uppercase;
-            margin-top: 0;
+            margin-top: 48px;
             margin-bottom: 48px;
           `}
         >
           Past Performances
         </h2>
-        {uniqueYears.length > 0 ? (
-          <div className="col-md-12">
-            <h2
-              className="text-center calendar-page-h2-year font-weight-lighter mt-5 mb-5 display-4"
-              css={css``}
-            >
-              {uniqueYears[0]}
-            </h2>
-          </div>
-        ) : null}
-        {uniqueYears.length > 0
-          ? pastEvents
-              .filter(event => {
-                const newEndDate = new Date(event.startDate).getFullYear()
-                if (newEndDate === uniqueYears[0]) {
-                  return event
-                }
-                return null
-              })
+
+        {uniqueYears.map(year => (
+          <React.Fragment key={year}>
+            <div className="col-md-12">
+              <h2 className="text-center calendar-page-h2-year font-weight-lighter mt-5 mb-5 display-4">
+                {year}
+              </h2>
+            </div>
+            {filteredPastEvents
+              .filter(event => new Date(event.startDate).getFullYear() === year)
               .map(calEvent => (
                 <CalendarItem
                   event={calEvent}
                   isCalendarPage
                   key={calEvent.id}
                 />
-              ))
-          : null}
-
-        {uniqueYears.length > 1 ? (
-          <div className="col-md-12">
-            <h2 className="text-center calendar-page-h2-year font-weight-lighter mt-5 mb-5 display-4">
-              {uniqueYears[1]}
-            </h2>
-          </div>
-        ) : null}
-
-        {uniqueYears.length > 1
-          ? pastEvents
-              .filter(event => {
-                const newEndDate = new Date(event.startDate).getFullYear()
-                if (newEndDate === uniqueYears[1]) {
-                  return event
-                }
-                return null
-              })
-              .map(calEvent => (
-                <CalendarItem
-                  event={calEvent}
-                  isCalendarPage
-                  key={calEvent.id}
-                />
-              ))
-          : null}
+              ))}
+          </React.Fragment>
+        ))}
       </Container>
     </Layout>
   )
