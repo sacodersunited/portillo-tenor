@@ -62,8 +62,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "preview": "npm run build && netlify deploy --dir=frontend/public",
-    "deploy": "netlify deploy --dir=frontend/public --prod"
+    "preview": "npm run build && netlify deploy --dir=public",
+    "deploy": "netlify deploy --dir=public --prod"
   },
   "repository": {
     "type": "git",
